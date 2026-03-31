@@ -1,0 +1,3220 @@
+[2026-03-31 12:32:17Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2026-03-31 12:32:17Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:17Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:17Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.credentials'
+[2026-03-31 12:32:17Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:17Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:17Z INFO HostContext] Well known config file 'Runner': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.runner'
+[2026-03-31 12:32:17Z INFO Worker] Version: 2.333.1
+[2026-03-31 12:32:17Z INFO Worker] Commit: 6792966801e8925346735b68c03bf9f347af4646
+[2026-03-31 12:32:17Z INFO Worker] Culture: ko-KR
+[2026-03-31 12:32:17Z INFO Worker] UI Culture: ko-KR
+[2026-03-31 12:32:17Z INFO Worker] Waiting to receive the job message from the channel.
+[2026-03-31 12:32:17Z INFO ProcessChannel] Receiving message of length 22232, with hash '9fabf5488d16edfe5bb48402e1b6ab134d62a92df18fa66528bea4d34442e584'
+[2026-03-31 12:32:17Z INFO Worker] Message received.
+[2026-03-31 12:32:17Z INFO Worker] Job message:
+ {
+  "fileTable": [
+    ".github/workflows/ci.yml"
+  ],
+  "mask": [
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    }
+  ],
+  "steps": [
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "docker/login-action",
+        "ref": "v3",
+        "repositoryType": "GitHub"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 43,
+        "col": 15,
+        "lit": "Log in to Docker Hub"
+      },
+      "contextName": "__docker_login-action",
+      "inputs": {
+        "type": 2,
+        "file": 1,
+        "line": 46,
+        "col": 11,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 46,
+              "col": 11,
+              "lit": "username"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 46,
+              "col": 21,
+              "expr": "secrets.DOCKER_USERNAME"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 47,
+              "col": 11,
+              "lit": "password"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 47,
+              "col": 21,
+              "expr": "secrets.DOCKER_TOKEN"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "1a3ab696-1e28-46c5-9967-13a2aaaeea53",
+      "name": "__docker_login-action"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 49,
+        "col": 15,
+        "lit": "Stop existing container"
+      },
+      "contextName": "__run",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 50,
+              "col": 14,
+              "lit": "docker stop math-ocr-api"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "continueOnError": {
+        "type": 5,
+        "file": 1,
+        "line": 51,
+        "col": 28,
+        "bool": true
+      },
+      "id": "36e9014e-c04c-486b-be24-b39e57448b19",
+      "name": "__run"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 53,
+        "col": 15,
+        "lit": "Remove existing container"
+      },
+      "contextName": "__run_2",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 54,
+              "col": 14,
+              "lit": "docker rm math-ocr-api"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "continueOnError": {
+        "type": 5,
+        "file": 1,
+        "line": 55,
+        "col": 28,
+        "bool": true
+      },
+      "id": "bd6c8483-a633-4765-bccf-5a00d6f020fc",
+      "name": "__run_2"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 57,
+        "col": 15,
+        "lit": "Pull latest image from Docker Hub"
+      },
+      "contextName": "__run_3",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 58,
+              "col": 14,
+              "expr": "format('docker pull {0}/math-ocr-api:latest', secrets.DOCKER_USERNAME)"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "c61b3973-9eaf-4c1a-9f66-62d918749a36",
+      "name": "__run_3"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 60,
+        "col": 15,
+        "lit": "Run new container"
+      },
+      "contextName": "__run_4",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 61,
+              "col": 14,
+              "expr": "format('docker run -d -p 8000:8000 --name math-ocr-api {0}/math-ocr-api:latest', secrets.DOCKER_USERNAME)"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "c9dc88e2-d644-4374-81fc-127261c87fa5",
+      "name": "__run_4"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 63,
+        "col": 15,
+        "lit": "Wait for server to start"
+      },
+      "contextName": "__run_5",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 64,
+              "col": 14,
+              "lit": "sleep 45"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "d9aa4d07-291d-451c-88f3-138e53704392",
+      "name": "__run_5"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 66,
+        "col": 15,
+        "lit": "Health check"
+      },
+      "contextName": "__run_6",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 67,
+              "col": 14,
+              "lit": "curl.exe -f http://localhost:8000/health"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "c5de0950-2b48-4bcb-a081-10ca954f30be",
+      "name": "__run_6"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 69,
+        "col": 15,
+        "lit": "Cleanup old images"
+      },
+      "contextName": "__run_7",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 70,
+              "col": 14,
+              "lit": "docker image prune -f"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "59b72000-a09c-454d-9d38-a290c3bc95be",
+      "name": "__run_7"
+    }
+  ],
+  "variables": {
+    "Actions.EnableHttpRedirects": {
+      "value": "true"
+    },
+    "DOCKER_TOKEN": {
+      "value": "***",
+      "isSecret": true
+    },
+    "DOCKER_USERNAME": {
+      "value": "***",
+      "isSecret": true
+    },
+    "DistributedTask.AddWarningToNode12Action": {
+      "value": "true"
+    },
+    "DistributedTask.AddWarningToNode16Action": {
+      "value": "true"
+    },
+    "DistributedTask.AllowRunnerContainerHooks": {
+      "value": "true"
+    },
+    "DistributedTask.DeprecateStepOutputCommands": {
+      "value": "true"
+    },
+    "DistributedTask.DetailUntarFailure": {
+      "value": "true"
+    },
+    "DistributedTask.EnableCompositeActions": {
+      "value": "true"
+    },
+    "DistributedTask.EnableJobServerQueueTelemetry": {
+      "value": "true"
+    },
+    "DistributedTask.EnhancedAnnotations": {
+      "value": "true"
+    },
+    "DistributedTask.ForceGithubJavascriptActionsToNode16": {
+      "value": "true"
+    },
+    "DistributedTask.ForceGithubJavascriptActionsToNode20": {
+      "value": "true"
+    },
+    "DistributedTask.LogTemplateErrorsAsDebugMessages": {
+      "value": "true"
+    },
+    "DistributedTask.MarkJobAsFailedOnWorkerCrash": {
+      "value": "true"
+    },
+    "DistributedTask.NewActionMetadata": {
+      "value": "true"
+    },
+    "DistributedTask.UploadStepSummary": {
+      "value": "true"
+    },
+    "DistributedTask.UseActionArchiveCache": {
+      "value": "true"
+    },
+    "DistributedTask.UseWhich2": {
+      "value": "true"
+    },
+    "RunService.FixEmbeddedIssues": {
+      "value": "true"
+    },
+    "actions.runner.requirenode24": {
+      "value": "false"
+    },
+    "actions.runner.usenode24bydefault": {
+      "value": "false"
+    },
+    "actions.runner.warnonnode20": {
+      "value": "true"
+    },
+    "actions_add_check_run_id_to_job_context": {
+      "value": "true"
+    },
+    "actions_container_action_runner_temp": {
+      "value": "true"
+    },
+    "actions_display_helpful_actions_download_errors": {
+      "value": "true"
+    },
+    "actions_runner_compare_workflow_parser": {
+      "value": "false"
+    },
+    "actions_runner_deprecate_linux_arm32": {
+      "value": "false"
+    },
+    "actions_runner_emit_composite_markers": {
+      "value": "false"
+    },
+    "actions_runner_kill_linux_arm32": {
+      "value": "false"
+    },
+    "actions_runner_node20_removal_date": {
+      "value": ""
+    },
+    "actions_runner_node24_default_date": {
+      "value": ""
+    },
+    "actions_service_container_command": {
+      "value": "false"
+    },
+    "actions_set_orchestration_id_env_for_actions": {
+      "value": "true"
+    },
+    "actions_skip_retry_complete_job_upon_known_errors": {
+      "value": "true"
+    },
+    "actions_snapshot_preflight_hosted_runner_check": {
+      "value": "false"
+    },
+    "actions_snapshot_preflight_image_gen_pool_check": {
+      "value": "false"
+    },
+    "actions_uses_cache_service_v2": {
+      "value": "true"
+    },
+    "github_token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.from_run_service": {
+      "value": "true"
+    },
+    "system.github.job": {
+      "value": "deploy"
+    },
+    "system.github.launch_endpoint": {
+      "value": "https://launch.actions.githubusercontent.com"
+    },
+    "system.github.results_endpoint": {
+      "value": "https://results-receiver.actions.githubusercontent.com/"
+    },
+    "system.github.results_upload_with_sdk": {
+      "value": "true"
+    },
+    "system.github.token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.github.token.permissions": {
+      "value": "{\"Contents\":\"read\",\"Metadata\":\"read\",\"Packages\":\"read\"}"
+    },
+    "system.orchestrationId": {
+      "value": "849540e0-05e8-4f34-9b2f-2421b4281b15.deploy.__default"
+    },
+    "system.phaseDisplayName": {
+      "value": "deploy"
+    },
+    "system.runner.lowdiskspacethreshold": {
+      "value": "100"
+    },
+    "system.runnerEnvironment": {
+      "value": "self-hosted"
+    },
+    "system.runnerGroupName": {
+      "value": "Default"
+    }
+  },
+  "messageType": "RunnerJobRequest",
+  "plan": {
+    "scopeIdentifier": "00000000-0000-0000-0000-000000000000",
+    "planType": "actions",
+    "version": 0,
+    "planId": "849540e0-05e8-4f34-9b2f-2421b4281b15",
+    "planGroup": null,
+    "artifactUri": null,
+    "artifactLocation": null,
+    "definition": null,
+    "owner": null
+  },
+  "timeline": {
+    "id": "849540e0-05e8-4f34-9b2f-2421b4281b15",
+    "changeId": 0,
+    "location": null
+  },
+  "jobId": "0448536b-d2eb-5f6c-8b87-59a0bce55efe",
+  "jobDisplayName": "deploy",
+  "jobName": "__default",
+  "requestId": 0,
+  "lockedUntil": "0001-01-01T00:00:00",
+  "resources": {
+    "endpoints": [
+      {
+        "data": {
+          "ServerId": "",
+          "ServerName": "",
+          "CacheServerUrl": "https://artifactcache.actions.githubusercontent.com/w8oGnHK6If0ELAVncOEZHBPWHM5pj5qWbnnbyxRPoPxRxcUxjr/",
+          "FeedStreamUrl": "wss://results-receiver.actions.githubusercontent.com/_ws/ingest.sock",
+          "ResultsServiceUrl": "https://results-receiver.actions.githubusercontent.com/",
+          "PipelinesServiceUrl": "https://pipelinesghubeus15.actions.githubusercontent.com/w8oGnHK6If0ELAVncOEZHBPWHM5pj5qWbnnbyxRPoPxRxcUxjr/",
+          "GenerateIdTokenUrl": "",
+          "ConnectivityChecks": "[\"https://broker.actions.githubusercontent.com/health\",\"https://token.actions.githubusercontent.com/ready\",\"https://run.actions.githubusercontent.com/health\"]"
+        },
+        "name": "SystemVssConnection",
+        "url": "https://run-actions-1-azure-eastus.actions.githubusercontent.com/62/",
+        "authorization": {
+          "parameters": {
+            "AccessToken": "***"
+          },
+          "scheme": "OAuth"
+        },
+        "isShared": false,
+        "isReady": true
+      }
+    ]
+  },
+  "contextData": {
+    "github": {
+      "t": 2,
+      "d": [
+        {
+          "k": "ref",
+          "v": "refs/heads/main"
+        },
+        {
+          "k": "sha",
+          "v": "dd1e5ec811cec8d8f4a422148c69bcf746849231"
+        },
+        {
+          "k": "repository",
+          "v": "smkl333/HW2"
+        },
+        {
+          "k": "repository_owner",
+          "v": "smkl333"
+        },
+        {
+          "k": "repository_owner_id",
+          "v": "217708216"
+        },
+        {
+          "k": "repositoryUrl",
+          "v": "git://github.com/smkl333/HW2.git"
+        },
+        {
+          "k": "run_id",
+          "v": "23797408538"
+        },
+        {
+          "k": "run_number",
+          "v": "11"
+        },
+        {
+          "k": "retention_days",
+          "v": "90"
+        },
+        {
+          "k": "run_attempt",
+          "v": "1"
+        },
+        {
+          "k": "artifact_cache_size_limit",
+          "v": "10"
+        },
+        {
+          "k": "repository_visibility",
+          "v": "public"
+        },
+        {
+          "k": "actor_id",
+          "v": "217708216"
+        },
+        {
+          "k": "actor",
+          "v": "smkl333"
+        },
+        {
+          "k": "workflow",
+          "v": "Build and Push Docker Image"
+        },
+        {
+          "k": "head_ref",
+          "v": ""
+        },
+        {
+          "k": "base_ref",
+          "v": ""
+        },
+        {
+          "k": "event_name",
+          "v": "push"
+        },
+        {
+          "k": "server_url",
+          "v": "https://github.com"
+        },
+        {
+          "k": "api_url",
+          "v": "https://api.github.com"
+        },
+        {
+          "k": "graphql_url",
+          "v": "https://api.github.com/graphql"
+        },
+        {
+          "k": "ref_name",
+          "v": "main"
+        },
+        {
+          "k": "ref_protected",
+          "v": false
+        },
+        {
+          "k": "ref_type",
+          "v": "branch"
+        },
+        {
+          "k": "secret_source",
+          "v": "Actions"
+        },
+        {
+          "k": "event",
+          "v": {
+            "t": 2,
+            "d": [
+              {
+                "k": "after",
+                "v": "dd1e5ec811cec8d8f4a422148c69bcf746849231"
+              },
+              {
+                "k": "base_ref",
+                "v": null
+              },
+              {
+                "k": "before",
+                "v": "f0d7a03460afad73161e62d808c7b62f8c5e6d92"
+              },
+              {
+                "k": "commits",
+                "v": {
+                  "t": 1,
+                  "a": [
+                    {
+                      "t": 2,
+                      "d": [
+                        {
+                          "k": "author",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "lminkyu333@gmail.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "smkl333"
+                              },
+                              {
+                                "k": "username",
+                                "v": "smkl333"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "committer",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "lminkyu333@gmail.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "smkl333"
+                              },
+                              {
+                                "k": "username",
+                                "v": "smkl333"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "distinct",
+                          "v": true
+                        },
+                        {
+                          "k": "id",
+                          "v": "dd1e5ec811cec8d8f4a422148c69bcf746849231"
+                        },
+                        {
+                          "k": "message",
+                          "v": "fix: increase deployment sleep time for ML model loading"
+                        },
+                        {
+                          "k": "timestamp",
+                          "v": "2026-03-31T21:31:35+09:00"
+                        },
+                        {
+                          "k": "tree_id",
+                          "v": "6cde3a4c94a85ac111c5a9c51928702012413350"
+                        },
+                        {
+                          "k": "url",
+                          "v": "https://github.com/smkl333/HW2/commit/dd1e5ec811cec8d8f4a422148c69bcf746849231"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "compare",
+                "v": "https://github.com/smkl333/HW2/compare/f0d7a03460af...dd1e5ec811ce"
+              },
+              {
+                "k": "created",
+                "v": false
+              },
+              {
+                "k": "deleted",
+                "v": false
+              },
+              {
+                "k": "forced",
+                "v": false
+              },
+              {
+                "k": "head_commit",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "author",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "lminkyu333@gmail.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "smkl333"
+                          },
+                          {
+                            "k": "username",
+                            "v": "smkl333"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "committer",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "lminkyu333@gmail.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "smkl333"
+                          },
+                          {
+                            "k": "username",
+                            "v": "smkl333"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "distinct",
+                      "v": true
+                    },
+                    {
+                      "k": "id",
+                      "v": "dd1e5ec811cec8d8f4a422148c69bcf746849231"
+                    },
+                    {
+                      "k": "message",
+                      "v": "fix: increase deployment sleep time for ML model loading"
+                    },
+                    {
+                      "k": "timestamp",
+                      "v": "2026-03-31T21:31:35+09:00"
+                    },
+                    {
+                      "k": "tree_id",
+                      "v": "6cde3a4c94a85ac111c5a9c51928702012413350"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/smkl333/HW2/commit/dd1e5ec811cec8d8f4a422148c69bcf746849231"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "pusher",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "email",
+                      "v": "lminkyu333@gmail.com"
+                    },
+                    {
+                      "k": "name",
+                      "v": "smkl333"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "ref",
+                "v": "refs/heads/main"
+              },
+              {
+                "k": "repository",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "allow_forking",
+                      "v": true
+                    },
+                    {
+                      "k": "archive_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/{archive_format}{/ref}"
+                    },
+                    {
+                      "k": "archived",
+                      "v": false
+                    },
+                    {
+                      "k": "assignees_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/assignees{/user}"
+                    },
+                    {
+                      "k": "blobs_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/git/blobs{/sha}"
+                    },
+                    {
+                      "k": "branches_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/branches{/branch}"
+                    },
+                    {
+                      "k": "clone_url",
+                      "v": "https://github.com/smkl333/HW2.git"
+                    },
+                    {
+                      "k": "collaborators_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/collaborators{/collaborator}"
+                    },
+                    {
+                      "k": "comments_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/comments{/number}"
+                    },
+                    {
+                      "k": "commits_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/commits{/sha}"
+                    },
+                    {
+                      "k": "compare_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/compare/{base}...{head}"
+                    },
+                    {
+                      "k": "contents_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/contents/{+path}"
+                    },
+                    {
+                      "k": "contributors_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/contributors"
+                    },
+                    {
+                      "k": "created_at",
+                      "v": 1774945047.0
+                    },
+                    {
+                      "k": "default_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "deployments_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/deployments"
+                    },
+                    {
+                      "k": "description",
+                      "v": null
+                    },
+                    {
+                      "k": "disabled",
+                      "v": false
+                    },
+                    {
+                      "k": "downloads_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/downloads"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/events"
+                    },
+                    {
+                      "k": "fork",
+                      "v": false
+                    },
+                    {
+                      "k": "forks",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/forks"
+                    },
+                    {
+                      "k": "full_name",
+                      "v": "smkl333/HW2"
+                    },
+                    {
+                      "k": "git_commits_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/git/commits{/sha}"
+                    },
+                    {
+                      "k": "git_refs_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/git/refs{/sha}"
+                    },
+                    {
+                      "k": "git_tags_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/git/tags{/sha}"
+                    },
+                    {
+                      "k": "git_url",
+                      "v": "git://github.com/smkl333/HW2.git"
+                    },
+                    {
+                      "k": "has_discussions",
+                      "v": false
+                    },
+                    {
+                      "k": "has_downloads",
+                      "v": true
+                    },
+                    {
+                      "k": "has_issues",
+                      "v": true
+                    },
+                    {
+                      "k": "has_pages",
+                      "v": false
+                    },
+                    {
+                      "k": "has_projects",
+                      "v": true
+                    },
+                    {
+                      "k": "has_pull_requests",
+                      "v": true
+                    },
+                    {
+                      "k": "has_wiki",
+                      "v": true
+                    },
+                    {
+                      "k": "homepage",
+                      "v": null
+                    },
+                    {
+                      "k": "hooks_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/hooks"
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/smkl333/HW2"
+                    },
+                    {
+                      "k": "id",
+                      "v": 1196985932.0
+                    },
+                    {
+                      "k": "is_template",
+                      "v": false
+                    },
+                    {
+                      "k": "issue_comment_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/issues/comments{/number}"
+                    },
+                    {
+                      "k": "issue_events_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/issues/events{/number}"
+                    },
+                    {
+                      "k": "issues_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/issues{/number}"
+                    },
+                    {
+                      "k": "keys_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/keys{/key_id}"
+                    },
+                    {
+                      "k": "labels_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/labels{/name}"
+                    },
+                    {
+                      "k": "language",
+                      "v": "JavaScript"
+                    },
+                    {
+                      "k": "languages_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/languages"
+                    },
+                    {
+                      "k": "license",
+                      "v": null
+                    },
+                    {
+                      "k": "master_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "merges_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/merges"
+                    },
+                    {
+                      "k": "milestones_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/milestones{/number}"
+                    },
+                    {
+                      "k": "mirror_url",
+                      "v": null
+                    },
+                    {
+                      "k": "name",
+                      "v": "HW2"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "R_kgDOR1iOTA"
+                    },
+                    {
+                      "k": "notifications_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/notifications{?since,all,participating}"
+                    },
+                    {
+                      "k": "open_issues",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "open_issues_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "owner",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "avatar_url",
+                            "v": "https://avatars.githubusercontent.com/u/217708216?v=4"
+                          },
+                          {
+                            "k": "email",
+                            "v": "lminkyu333@gmail.com"
+                          },
+                          {
+                            "k": "events_url",
+                            "v": "https://api.github.com/users/smkl333/events{/privacy}"
+                          },
+                          {
+                            "k": "followers_url",
+                            "v": "https://api.github.com/users/smkl333/followers"
+                          },
+                          {
+                            "k": "following_url",
+                            "v": "https://api.github.com/users/smkl333/following{/other_user}"
+                          },
+                          {
+                            "k": "gists_url",
+                            "v": "https://api.github.com/users/smkl333/gists{/gist_id}"
+                          },
+                          {
+                            "k": "gravatar_id",
+                            "v": ""
+                          },
+                          {
+                            "k": "html_url",
+                            "v": "https://github.com/smkl333"
+                          },
+                          {
+                            "k": "id",
+                            "v": 217708216.0
+                          },
+                          {
+                            "k": "login",
+                            "v": "smkl333"
+                          },
+                          {
+                            "k": "name",
+                            "v": "smkl333"
+                          },
+                          {
+                            "k": "node_id",
+                            "v": "U_kgDODPn2uA"
+                          },
+                          {
+                            "k": "organizations_url",
+                            "v": "https://api.github.com/users/smkl333/orgs"
+                          },
+                          {
+                            "k": "received_events_url",
+                            "v": "https://api.github.com/users/smkl333/received_events"
+                          },
+                          {
+                            "k": "repos_url",
+                            "v": "https://api.github.com/users/smkl333/repos"
+                          },
+                          {
+                            "k": "site_admin",
+                            "v": false
+                          },
+                          {
+                            "k": "starred_url",
+                            "v": "https://api.github.com/users/smkl333/starred{/owner}{/repo}"
+                          },
+                          {
+                            "k": "subscriptions_url",
+                            "v": "https://api.github.com/users/smkl333/subscriptions"
+                          },
+                          {
+                            "k": "type",
+                            "v": "User"
+                          },
+                          {
+                            "k": "url",
+                            "v": "https://api.github.com/users/smkl333"
+                          },
+                          {
+                            "k": "user_view_type",
+                            "v": "public"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "private",
+                      "v": false
+                    },
+                    {
+                      "k": "pull_request_creation_policy",
+                      "v": "all"
+                    },
+                    {
+                      "k": "pulls_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/pulls{/number}"
+                    },
+                    {
+                      "k": "pushed_at",
+                      "v": 1774960295.0
+                    },
+                    {
+                      "k": "releases_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/releases{/id}"
+                    },
+                    {
+                      "k": "size",
+                      "v": 13.0
+                    },
+                    {
+                      "k": "ssh_url",
+                      "v": "git@github.com:smkl333/HW2.git"
+                    },
+                    {
+                      "k": "stargazers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/stargazers"
+                    },
+                    {
+                      "k": "statuses_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/statuses/{sha}"
+                    },
+                    {
+                      "k": "subscribers_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/subscribers"
+                    },
+                    {
+                      "k": "subscription_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/subscription"
+                    },
+                    {
+                      "k": "svn_url",
+                      "v": "https://github.com/smkl333/HW2"
+                    },
+                    {
+                      "k": "tags_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/tags"
+                    },
+                    {
+                      "k": "teams_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/teams"
+                    },
+                    {
+                      "k": "topics",
+                      "v": {
+                        "t": 1
+                      }
+                    },
+                    {
+                      "k": "trees_url",
+                      "v": "https://api.github.com/repos/smkl333/HW2/git/trees{/sha}"
+                    },
+                    {
+                      "k": "updated_at",
+                      "v": "2026-03-31T12:28:10Z"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/repos/smkl333/HW2"
+                    },
+                    {
+                      "k": "visibility",
+                      "v": "public"
+                    },
+                    {
+                      "k": "watchers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "watchers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "web_commit_signoff_required",
+                      "v": false
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "sender",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "avatar_url",
+                      "v": "https://avatars.githubusercontent.com/u/217708216?v=4"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/users/smkl333/events{/privacy}"
+                    },
+                    {
+                      "k": "followers_url",
+                      "v": "https://api.github.com/users/smkl333/followers"
+                    },
+                    {
+                      "k": "following_url",
+                      "v": "https://api.github.com/users/smkl333/following{/other_user}"
+                    },
+                    {
+                      "k": "gists_url",
+                      "v": "https://api.github.com/users/smkl333/gists{/gist_id}"
+                    },
+                    {
+                      "k": "gravatar_id",
+                      "v": ""
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/smkl333"
+                    },
+                    {
+                      "k": "id",
+                      "v": 217708216.0
+                    },
+                    {
+                      "k": "login",
+                      "v": "smkl333"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "U_kgDODPn2uA"
+                    },
+                    {
+                      "k": "organizations_url",
+                      "v": "https://api.github.com/users/smkl333/orgs"
+                    },
+                    {
+                      "k": "received_events_url",
+                      "v": "https://api.github.com/users/smkl333/received_events"
+                    },
+                    {
+                      "k": "repos_url",
+                      "v": "https://api.github.com/users/smkl333/repos"
+                    },
+                    {
+                      "k": "site_admin",
+                      "v": false
+                    },
+                    {
+                      "k": "starred_url",
+                      "v": "https://api.github.com/users/smkl333/starred{/owner}{/repo}"
+                    },
+                    {
+                      "k": "subscriptions_url",
+                      "v": "https://api.github.com/users/smkl333/subscriptions"
+                    },
+                    {
+                      "k": "type",
+                      "v": "User"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/users/smkl333"
+                    },
+                    {
+                      "k": "user_view_type",
+                      "v": "public"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "k": "workflow_ref",
+          "v": "smkl333/HW2/.github/workflows/ci.yml@refs/heads/main"
+        },
+        {
+          "k": "workflow_sha",
+          "v": "dd1e5ec811cec8d8f4a422148c69bcf746849231"
+        },
+        {
+          "k": "repository_id",
+          "v": "1196985932"
+        },
+        {
+          "k": "triggering_actor",
+          "v": "smkl333"
+        }
+      ]
+    },
+    "inputs": {
+      "t": 2
+    },
+    "job": {
+      "t": 2,
+      "d": [
+        {
+          "k": "check_run_id",
+          "v": 69348292398.0
+        }
+      ]
+    },
+    "matrix": null,
+    "needs": {
+      "t": 2,
+      "d": [
+        {
+          "k": "build",
+          "v": {
+            "t": 2,
+            "d": [
+              {
+                "k": "result",
+                "v": "success"
+              },
+              {
+                "k": "outputs",
+                "v": {
+                  "t": 2
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "strategy": {
+      "t": 2,
+      "d": [
+        {
+          "k": "fail-fast",
+          "v": true
+        },
+        {
+          "k": "job-index",
+          "v": 0.0
+        },
+        {
+          "k": "job-total",
+          "v": 1.0
+        },
+        {
+          "k": "max-parallel",
+          "v": 1.0
+        }
+      ]
+    },
+    "vars": {
+      "t": 2
+    }
+  },
+  "billingOwnerId": "U_kgDODPn2uA"
+}
+[2026-03-31 12:32:17Z INFO JobRunner] Job ID 0448536b-d2eb-5f6c-8b87-59a0bce55efe
+[2026-03-31 12:32:17Z INFO ConfigurationStore] currentAssemblyLocation: C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin\Runner.Worker.dll
+[2026-03-31 12:32:17Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:17Z INFO ConfigurationStore] binPath: C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin
+[2026-03-31 12:32:17Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:17Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:17Z INFO ConfigurationStore] RootFolder: C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner
+[2026-03-31 12:32:17Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:17Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:17Z INFO HostContext] Well known config file 'Runner': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.runner'
+[2026-03-31 12:32:17Z INFO ConfigurationStore] ConfigFilePath: C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.runner
+[2026-03-31 12:32:17Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:17Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:17Z INFO HostContext] Well known config file 'MigratedRunner': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.runner_migrated'
+[2026-03-31 12:32:17Z INFO ConfigurationStore] MigratedConfigFilePath: C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.runner_migrated
+[2026-03-31 12:32:17Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:17Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:17Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.credentials'
+[2026-03-31 12:32:17Z INFO ConfigurationStore] CredFilePath: C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.credentials
+[2026-03-31 12:32:17Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:17Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:17Z INFO HostContext] Well known config file 'MigratedCredentials': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.credentials_migrated'
+[2026-03-31 12:32:17Z INFO ConfigurationStore] MigratedCredFilePath: C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.credentials_migrated
+[2026-03-31 12:32:17Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:17Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:17Z INFO HostContext] Well known config file 'Service': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.service'
+[2026-03-31 12:32:17Z INFO ConfigurationStore] ServiceConfigFilePath: C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.service
+[2026-03-31 12:32:17Z INFO ConfigurationStore] Read setting file: 390 chars
+[2026-03-31 12:32:17Z INFO JobRunner] Initializing launch client
+[2026-03-31 12:32:17Z INFO JobServerQueue] Initializing results client
+[2026-03-31 12:32:17Z INFO ResultServer] Creating websocket client ...wss://results-receiver.actions.githubusercontent.com/_ws/ingest.sock
+[2026-03-31 12:32:17Z INFO ResultServer] Attempting to start websocket client with delay 00:00:00.
+[2026-03-31 12:32:18Z INFO JobServerQueue] Start process web console line queue.
+[2026-03-31 12:32:18Z INFO JobServerQueue] Start process file upload queue.
+[2026-03-31 12:32:18Z INFO JobServerQueue] Start results file upload queue.
+[2026-03-31 12:32:18Z INFO JobServerQueue] Starting results-based upload queue...
+[2026-03-31 12:32:18Z INFO JobServerQueue] Start process timeline update queue.
+[2026-03-31 12:32:18Z INFO ExecutionContext] Initializing Job context
+[2026-03-31 12:32:18Z INFO ExecutionContext] Initialize GitHub context
+[2026-03-31 12:32:18Z INFO ExecutionContext] Initialize Env context
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Diag': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Diag': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag'
+[2026-03-31 12:32:18Z INFO JobRunner] Starting the job execution context.
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:18Z INFO JobRunner] Validating directory permissions for: 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Tools': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_tool'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Temp': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp'
+[2026-03-31 12:32:18Z INFO JobRunner] Getting job extension.
+[2026-03-31 12:32:18Z INFO JobRunner] Initialize job. Getting all job steps.
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Diag': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Diag': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:18Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.credentials'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:18Z INFO HostContext] Well known config file 'SetupInfo': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.setup_info'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:18Z INFO PipelineDirectoryManager] Loading tracking config if exists: C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_PipelineMapping\smkl333/HW2\PipelineFolder.json
+[2026-03-31 12:32:18Z INFO PipelineDirectoryManager] Updating job run properties.
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:18Z INFO JobExtension] Downloading actions
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Actions': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_actions'
+[2026-03-31 12:32:18Z INFO Worker] Listening for cancel message from the channel.
+[2026-03-31 12:32:18Z INFO Worker] Waiting for the job to complete or for a cancel message from the channel.
+[2026-03-31 12:32:18Z INFO ResultServer] Successfully started websocket client.
+[2026-03-31 12:32:18Z INFO JobServerQueue] Try to append 1 batches web console lines for record '8ea317c4-8570-4bb4-bedb-6635bd0664f9', success rate: 1/1.
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Actions': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_actions'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:18Z INFO HostContext] Well known directory 'Actions': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_actions'
+[2026-03-31 12:32:18Z INFO ActionManager] Save archive 'https://api.github.com/repos/docker/login-action/zipball/c94ce9fb468520275223c153574b00df6fe4bcc9' into C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_actions\_temp_e416f117-e2ff-495f-afca-b0cd9364abdd\d382d80e-1c8b-4129-907c-39dc9eb8513a.zip.
+[2026-03-31 12:32:19Z INFO JobServerQueue] Try to append 1 batches web console lines for record '8ea317c4-8570-4bb4-bedb-6635bd0664f9', success rate: 1/1.
+[2026-03-31 12:32:19Z INFO JobServerQueue] Job timeline record has been updated for the first time.
+[2026-03-31 12:32:19Z INFO ActionManager] Request URL: https://api.github.com/repos/docker/login-action/zipball/c94ce9fb468520275223c153574b00df6fe4bcc9 X-GitHub-Request-Id: C6F7:7180E:2C53:1A595:69CBBED1 Http Status: OK
+[2026-03-31 12:32:19Z INFO ActionManager] Finished getting action repository.
+[2026-03-31 12:32:19Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:19Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:19Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:19Z INFO HostContext] Well known directory 'Actions': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_actions'
+[2026-03-31 12:32:19Z INFO ActionManifestManagerLegacy] Load schema file with definitions: [
+  "null",
+  "boolean",
+  "number",
+  "string",
+  "sequence",
+  "mapping",
+  "any",
+  "action-root",
+  "inputs",
+  "input",
+  "outputs",
+  "output-definition",
+  "runs",
+  "container-runs",
+  "container-runs-args",
+  "container-runs-env",
+  "node-runs",
+  "plugin-runs",
+  "composite-runs",
+  "composite-steps",
+  "composite-step",
+  "run-step",
+  "uses-step",
+  "container-runs-context",
+  "output-value",
+  "input-default-context",
+  "non-empty-string",
+  "string-steps-context",
+  "boolean-steps-context",
+  "step-env",
+  "step-if",
+  "step-with"
+]
+[2026-03-31 12:32:19Z INFO ActionManifestManager] Load schema file with definitions: [
+  "null",
+  "boolean",
+  "number",
+  "string",
+  "sequence",
+  "mapping",
+  "any",
+  "action-root",
+  "inputs",
+  "input",
+  "outputs",
+  "output-definition",
+  "runs",
+  "container-runs",
+  "container-runs-args",
+  "container-runs-env",
+  "node-runs",
+  "plugin-runs",
+  "composite-runs",
+  "composite-steps",
+  "composite-step",
+  "run-step",
+  "uses-step",
+  "container-runs-context",
+  "output-value",
+  "input-default-context",
+  "non-empty-string",
+  "string-steps-context",
+  "boolean-steps-context",
+  "step-env",
+  "step-if",
+  "step-with"
+]
+[2026-03-31 12:32:19Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:19Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:19Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:19Z INFO HostContext] Well known directory 'Actions': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_actions'
+[2026-03-31 12:32:19Z INFO ActionManifestManagerLegacy] Ignore action property author.
+[2026-03-31 12:32:19Z INFO ActionManifestManagerLegacy] Ignore action property branding.
+[2026-03-31 12:32:19Z INFO ActionManifestManagerLegacy] Loaded action.yml file: {
+  "name": "Docker Login",
+  "description": "GitHub Action to login against a Docker registry",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 10,
+          "col": 3,
+          "lit": "registry"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 13,
+          "col": 3,
+          "lit": "username"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 16,
+          "col": 3,
+          "lit": "password"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 19,
+          "col": 3,
+          "lit": "ecr"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 22,
+          "col": 3,
+          "lit": "scope"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "logout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 27,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 29,
+          "col": 3,
+          "lit": "registry-auth"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2026-03-31 12:32:19Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2026-03-31 12:32:19Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:19Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:19Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:19Z INFO HostContext] Well known directory 'Actions': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_actions'
+[2026-03-31 12:32:19Z INFO ActionManager] Load action that reference repository from 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_actions\docker\login-action\v3'
+[2026-03-31 12:32:19Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:19Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:19Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:19Z INFO HostContext] Well known directory 'Actions': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_actions'
+[2026-03-31 12:32:19Z INFO ActionManifestManagerLegacy] Ignore action property author.
+[2026-03-31 12:32:19Z INFO ActionManifestManagerLegacy] Ignore action property branding.
+[2026-03-31 12:32:19Z INFO ActionManifestManagerLegacy] Loaded action.yml file: {
+  "name": "Docker Login",
+  "description": "GitHub Action to login against a Docker registry",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 10,
+          "col": 3,
+          "lit": "registry"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 13,
+          "col": 3,
+          "lit": "username"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 16,
+          "col": 3,
+          "lit": "password"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 19,
+          "col": 3,
+          "lit": "ecr"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 22,
+          "col": 3,
+          "lit": "scope"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "logout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 27,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 29,
+          "col": 3,
+          "lit": "registry-auth"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2026-03-31 12:32:19Z INFO ActionManager] Action pre node.js file: N/A.
+[2026-03-31 12:32:19Z INFO ActionManager] Action node.js file: dist/index.js.
+[2026-03-31 12:32:19Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2026-03-31 12:32:19Z INFO JobExtension] Adding .
+[2026-03-31 12:32:20Z INFO JobExtension] Adding .
+[2026-03-31 12:32:20Z INFO JobExtension] Adding .
+[2026-03-31 12:32:20Z INFO JobExtension] Adding .
+[2026-03-31 12:32:20Z INFO JobExtension] Adding .
+[2026-03-31 12:32:20Z INFO JobExtension] Adding .
+[2026-03-31 12:32:20Z INFO JobExtension] Adding .
+[2026-03-31 12:32:20Z INFO JobExtension] Adding .
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Diag': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Diag': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Diag': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Diag': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Diag': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Diag': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Diag': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Diag': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Diag': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Diag': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Diag': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Diag': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Diag': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Diag': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Diag': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Diag': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag'
+[2026-03-31 12:32:20Z INFO JobExtension] Total accessible running process: 297.
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:20Z INFO JobExtension] Start checking server connectivity.
+[2026-03-31 12:32:20Z INFO JobExtension] Check server connectivity for https://broker.actions.githubusercontent.com/health.
+[2026-03-31 12:32:20Z INFO JobExtension] Check server connectivity for https://token.actions.githubusercontent.com/ready.
+[2026-03-31 12:32:20Z INFO JobExtension] Check server connectivity for https://run.actions.githubusercontent.com/health.
+[2026-03-31 12:32:20Z INFO JobExtension] Start checking service connectivity in background.
+[2026-03-31 12:32:20Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "setup_job",
+  "type": "runner",
+  "stage": "Pre",
+  "stepId": "8ea317c4-8570-4bb4-bedb-6635bd0664f9",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 2,
+  "startTime": "2026-03-31T12:32:18.0271134Z",
+  "finishTime": "2026-03-31T12:32:20.0110723Z"
+}.
+[2026-03-31 12:32:20Z INFO JobRunner] Total job steps: 8.
+[2026-03-31 12:32:20Z INFO JobRunner] Run all job steps.
+[2026-03-31 12:32:20Z INFO StepsRunner] Processing step: DisplayName='Log in to Docker Hub'
+[2026-03-31 12:32:20Z INFO StepsRunner] Evaluating: success()
+[2026-03-31 12:32:20Z INFO StepsRunner] Result: true
+[2026-03-31 12:32:20Z INFO StepsRunner] Starting the step.
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:20Z INFO StepsRunner] Which2: 'chcp'
+[2026-03-31 12:32:20Z INFO StepsRunner] Location: 'C:\WINDOWS\system32\chcp.COM'
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper] Starting process:
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\system32\chcp.COM'
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper] Process started with process id 4936, waiting for process exit.
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper] Finished process 4936 with exit code 0, and elapsed time 00:00:00.0278317.
+[2026-03-31 12:32:20Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Actions': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_actions'
+[2026-03-31 12:32:20Z INFO ActionManager] Load action that reference repository from 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_actions\docker\login-action\v3'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Actions': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_actions'
+[2026-03-31 12:32:20Z INFO ActionManifestManagerLegacy] Ignore action property author.
+[2026-03-31 12:32:20Z INFO ActionManifestManagerLegacy] Ignore action property branding.
+[2026-03-31 12:32:20Z INFO ActionManifestManagerLegacy] Loaded action.yml file: {
+  "name": "Docker Login",
+  "description": "GitHub Action to login against a Docker registry",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 10,
+          "col": 3,
+          "lit": "registry"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 13,
+          "col": 3,
+          "lit": "username"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 16,
+          "col": 3,
+          "lit": "password"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 19,
+          "col": 3,
+          "lit": "ecr"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 22,
+          "col": 3,
+          "lit": "scope"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "logout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 27,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 29,
+          "col": 3,
+          "lit": "registry-auth"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2026-03-31 12:32:20Z INFO ActionManager] Action pre node.js file: N/A.
+[2026-03-31 12:32:20Z INFO ActionManager] Action node.js file: dist/index.js.
+[2026-03-31 12:32:20Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2026-03-31 12:32:20Z INFO ExecutionContext] Reserve record order 10 to 18 for post job actions.
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Diag': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Diag': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Temp': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp'
+[2026-03-31 12:32:20Z INFO ExecutionContext] Write event payload to C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Temp': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp'
+[2026-03-31 12:32:20Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-03-31 12:32:20Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathFileCommand, Runner.Worker
+[2026-03-31 12:32:20Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvFileCommand, Runner.Worker
+[2026-03-31 12:32:20Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.CreateStepSummaryCommand, Runner.Worker
+[2026-03-31 12:32:20Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateFileCommand, Runner.Worker
+[2026-03-31 12:32:20Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputFileCommand, Runner.Worker
+[2026-03-31 12:32:20Z INFO ActionManifestManagerLegacy] Input 'registry': default value evaluate result: ""
+[2026-03-31 12:32:20Z INFO ActionManifestManagerLegacy] Input 'ecr': default value evaluate result: ""
+[2026-03-31 12:32:20Z INFO ActionManifestManagerLegacy] Input 'scope': default value evaluate result: ""
+[2026-03-31 12:32:20Z INFO ActionManifestManagerLegacy] Input 'logout': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 27,
+  "col": 14,
+  "lit": "true"
+}
+[2026-03-31 12:32:20Z INFO ActionManifestManagerLegacy] Input 'registry-auth': default value evaluate result: ""
+[2026-03-31 12:32:20Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-03-31 12:32:20Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.InternalPluginSetRepoPathCommandExtension, Runner.Worker
+[2026-03-31 12:32:20Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvCommandExtension, Runner.Worker
+[2026-03-31 12:32:20Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputCommandExtension, Runner.Worker
+[2026-03-31 12:32:20Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateCommandExtension, Runner.Worker
+[2026-03-31 12:32:20Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathCommandExtension, Runner.Worker
+[2026-03-31 12:32:20Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMaskCommandExtension, Runner.Worker
+[2026-03-31 12:32:20Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMatcherCommandExtension, Runner.Worker
+[2026-03-31 12:32:20Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.RemoveMatcherCommandExtension, Runner.Worker
+[2026-03-31 12:32:20Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.WarningCommandExtension, Runner.Worker
+[2026-03-31 12:32:20Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.ErrorCommandExtension, Runner.Worker
+[2026-03-31 12:32:20Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.NoticeCommandExtension, Runner.Worker
+[2026-03-31 12:32:20Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.DebugCommandExtension, Runner.Worker
+[2026-03-31 12:32:20Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.GroupCommandExtension, Runner.Worker
+[2026-03-31 12:32:20Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EndGroupCommandExtension, Runner.Worker
+[2026-03-31 12:32:20Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EchoCommandExtension, Runner.Worker
+[2026-03-31 12:32:20Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-03-31 12:32:20Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-03-31 12:32:20Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-03-31 12:32:20Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-03-31 12:32:20Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-03-31 12:32:20Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-03-31 12:32:20Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-03-31 12:32:20Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-03-31 12:32:20Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-03-31 12:32:20Z INFO ActionCommandManager] Register action command extension for command error
+[2026-03-31 12:32:20Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-03-31 12:32:20Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-03-31 12:32:20Z INFO ActionCommandManager] Register action command extension for command group
+[2026-03-31 12:32:20Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-03-31 12:32:20Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:20Z INFO HostContext] Well known directory 'Externals': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\externals'
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper] Starting process:
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper]   File name: 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\externals\node20\bin\node.exe'
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper]   Arguments: '"C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_actions\docker\login-action\v3\dist/index.js"'
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\HW2\HW2'
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-03-31 12:32:20Z INFO JobServerQueue] Try to append 1 batches web console lines for record '8ea317c4-8570-4bb4-bedb-6635bd0664f9', success rate: 1/1.
+[2026-03-31 12:32:20Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1a3ab696-1e28-46c5-9967-13a2aaaeea53', success rate: 1/1.
+[2026-03-31 12:32:20Z INFO ProcessInvokerWrapper] Process started with process id 9680, waiting for process exit.
+[2026-03-31 12:32:21Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-03-31 12:32:21Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag\blocks\849540e0-05e8-4f34-9b2f-2421b4281b15_8ea317c4-8570-4bb4-bedb-6635bd0664f9.1
+[2026-03-31 12:32:21Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2026-03-31 12:32:21Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1a3ab696-1e28-46c5-9967-13a2aaaeea53', success rate: 1/1.
+[2026-03-31 12:32:22Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper] Finished process 9680 with exit code 0, and elapsed time 00:00:03.4470900.
+[2026-03-31 12:32:23Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp\_runner_file_commands\step_summary_e8ce21f6-9808-4a3b-a859-3e96cb33d3a0) is empty; skipping attachment upload
+[2026-03-31 12:32:23Z INFO StepsRunner] Step result: 
+[2026-03-31 12:32:23Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "docker/login-action",
+  "ref": "v3",
+  "type": "node20",
+  "stage": "Main",
+  "stepId": "1a3ab696-1e28-46c5-9967-13a2aaaeea53",
+  "stepContextName": "__docker_login-action",
+  "hasPreStep": false,
+  "hasPostStep": true,
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 4,
+  "startTime": "2026-03-31T12:32:20.0167571Z",
+  "finishTime": "2026-03-31T12:32:23.5267211Z"
+}.
+[2026-03-31 12:32:23Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2026-03-31 12:32:23Z INFO StepsRunner] Current state: job state = ''
+[2026-03-31 12:32:23Z INFO StepsRunner] Processing step: DisplayName='Stop existing container'
+[2026-03-31 12:32:23Z INFO StepsRunner] Evaluating: success()
+[2026-03-31 12:32:23Z INFO StepsRunner] Result: true
+[2026-03-31 12:32:23Z INFO StepsRunner] Starting the step.
+[2026-03-31 12:32:23Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:23Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:23Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:23Z INFO StepsRunner] Which2: 'chcp'
+[2026-03-31 12:32:23Z INFO StepsRunner] Location: 'C:\WINDOWS\system32\chcp.COM'
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper] Starting process:
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\system32\chcp.COM'
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper] Process started with process id 30916, waiting for process exit.
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper] Finished process 30916 with exit code 0, and elapsed time 00:00:00.0046920.
+[2026-03-31 12:32:23Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-03-31 12:32:23Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:23Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:23Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:23Z INFO HostContext] Well known directory 'Temp': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp'
+[2026-03-31 12:32:23Z INFO ExecutionContext] Write event payload to C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-03-31 12:32:23Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:23Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:23Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:23Z INFO HostContext] Well known directory 'Temp': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp'
+[2026-03-31 12:32:23Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-03-31 12:32:23Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-03-31 12:32:23Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-03-31 12:32:23Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-03-31 12:32:23Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-03-31 12:32:23Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-03-31 12:32:23Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-03-31 12:32:23Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-03-31 12:32:23Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-03-31 12:32:23Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-03-31 12:32:23Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-03-31 12:32:23Z INFO ActionCommandManager] Register action command extension for command error
+[2026-03-31 12:32:23Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-03-31 12:32:23Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-03-31 12:32:23Z INFO ActionCommandManager] Register action command extension for command group
+[2026-03-31 12:32:23Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-03-31 12:32:23Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-03-31 12:32:23Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-03-31 12:32:23Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-03-31 12:32:23Z INFO ScriptHandler] Defaulting to powershell
+[2026-03-31 12:32:23Z INFO ScriptHandler] Which2: 'powershell'
+[2026-03-31 12:32:23Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-03-31 12:32:23Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:23Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:23Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:23Z INFO HostContext] Well known directory 'Temp': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp'
+[2026-03-31 12:32:23Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-03-31 12:32:23Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-03-31 12:32:23Z INFO ScriptHandler] Defaulting to powershell
+[2026-03-31 12:32:23Z INFO ScriptHandler] Which2: 'powershell'
+[2026-03-31 12:32:23Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper] Starting process:
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp\fbfa1400-55e7-4582-88d6-000b9aa89d7e.ps1'"'
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\HW2\HW2'
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-03-31 12:32:23Z INFO ProcessInvokerWrapper] Process started with process id 30168, waiting for process exit.
+[2026-03-31 12:32:23Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1a3ab696-1e28-46c5-9967-13a2aaaeea53', success rate: 1/1.
+[2026-03-31 12:32:23Z INFO JobServerQueue] Try to append 1 batches web console lines for record '36e9014e-c04c-486b-be24-b39e57448b19', success rate: 1/1.
+[2026-03-31 12:32:24Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2026-03-31 12:32:24Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-03-31 12:32:24Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag\blocks\849540e0-05e8-4f34-9b2f-2421b4281b15_1a3ab696-1e28-46c5-9967-13a2aaaeea53.1
+[2026-03-31 12:32:24Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2026-03-31 12:32:25Z INFO JobServerQueue] Try to append 1 batches web console lines for record '36e9014e-c04c-486b-be24-b39e57448b19', success rate: 1/1.
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper] Finished process 30168 with exit code 0, and elapsed time 00:00:01.4886357.
+[2026-03-31 12:32:25Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp\_runner_file_commands\step_summary_6144bc2c-3069-4fef-88e0-0a38ff2190bf) is empty; skipping attachment upload
+[2026-03-31 12:32:25Z INFO StepsRunner] Step result: 
+[2026-03-31 12:32:25Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "36e9014e-c04c-486b-be24-b39e57448b19",
+  "stepContextName": "__run",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 2,
+  "startTime": "2026-03-31T12:32:23.5277788Z",
+  "finishTime": "2026-03-31T12:32:25.0411546Z"
+}.
+[2026-03-31 12:32:25Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2026-03-31 12:32:25Z INFO StepsRunner] Current state: job state = ''
+[2026-03-31 12:32:25Z INFO StepsRunner] Processing step: DisplayName='Remove existing container'
+[2026-03-31 12:32:25Z INFO StepsRunner] Evaluating: success()
+[2026-03-31 12:32:25Z INFO StepsRunner] Result: true
+[2026-03-31 12:32:25Z INFO StepsRunner] Starting the step.
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:25Z INFO StepsRunner] Which2: 'chcp'
+[2026-03-31 12:32:25Z INFO StepsRunner] Location: 'C:\WINDOWS\system32\chcp.COM'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper] Starting process:
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\system32\chcp.COM'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper] Process started with process id 28592, waiting for process exit.
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper] Finished process 28592 with exit code 0, and elapsed time 00:00:00.0047820.
+[2026-03-31 12:32:25Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Temp': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp'
+[2026-03-31 12:32:25Z INFO ExecutionContext] Write event payload to C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Temp': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp'
+[2026-03-31 12:32:25Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-03-31 12:32:25Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command error
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command group
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-03-31 12:32:25Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-03-31 12:32:25Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-03-31 12:32:25Z INFO ScriptHandler] Defaulting to powershell
+[2026-03-31 12:32:25Z INFO ScriptHandler] Which2: 'powershell'
+[2026-03-31 12:32:25Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Temp': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp'
+[2026-03-31 12:32:25Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-03-31 12:32:25Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-03-31 12:32:25Z INFO ScriptHandler] Defaulting to powershell
+[2026-03-31 12:32:25Z INFO ScriptHandler] Which2: 'powershell'
+[2026-03-31 12:32:25Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper] Starting process:
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp\6bdc28e1-4afd-4f26-8618-f5b91500849c.ps1'"'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\HW2\HW2'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper] Process started with process id 1712, waiting for process exit.
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper] Finished process 1712 with exit code 0, and elapsed time 00:00:00.1704162.
+[2026-03-31 12:32:25Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp\_runner_file_commands\step_summary_21bc6e83-76ed-4f32-aa4c-8b2b23dd3a8f) is empty; skipping attachment upload
+[2026-03-31 12:32:25Z INFO StepsRunner] Step result: 
+[2026-03-31 12:32:25Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "bd6c8483-a633-4765-bccf-5a00d6f020fc",
+  "stepContextName": "__run_2",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2026-03-31T12:32:25.041988Z",
+  "finishTime": "2026-03-31T12:32:25.2291504Z"
+}.
+[2026-03-31 12:32:25Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2026-03-31 12:32:25Z INFO StepsRunner] Current state: job state = ''
+[2026-03-31 12:32:25Z INFO StepsRunner] Processing step: DisplayName='Pull latest image from Docker Hub'
+[2026-03-31 12:32:25Z INFO StepsRunner] Evaluating: success()
+[2026-03-31 12:32:25Z INFO StepsRunner] Result: true
+[2026-03-31 12:32:25Z INFO StepsRunner] Starting the step.
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:25Z INFO StepsRunner] Which2: 'chcp'
+[2026-03-31 12:32:25Z INFO StepsRunner] Location: 'C:\WINDOWS\system32\chcp.COM'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper] Starting process:
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\system32\chcp.COM'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper] Process started with process id 29680, waiting for process exit.
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper] Finished process 29680 with exit code 0, and elapsed time 00:00:00.0049094.
+[2026-03-31 12:32:25Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Temp': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp'
+[2026-03-31 12:32:25Z INFO ExecutionContext] Write event payload to C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Temp': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp'
+[2026-03-31 12:32:25Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-03-31 12:32:25Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command error
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command group
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-03-31 12:32:25Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-03-31 12:32:25Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-03-31 12:32:25Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-03-31 12:32:25Z INFO ScriptHandler] Defaulting to powershell
+[2026-03-31 12:32:25Z INFO ScriptHandler] Which2: 'powershell'
+[2026-03-31 12:32:25Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:25Z INFO HostContext] Well known directory 'Temp': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp'
+[2026-03-31 12:32:25Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-03-31 12:32:25Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-03-31 12:32:25Z INFO ScriptHandler] Defaulting to powershell
+[2026-03-31 12:32:25Z INFO ScriptHandler] Which2: 'powershell'
+[2026-03-31 12:32:25Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper] Starting process:
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp\b83307d6-9013-45eb-850e-168ea6ba9ea3.ps1'"'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\HW2\HW2'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-03-31 12:32:25Z INFO ProcessInvokerWrapper] Process started with process id 30448, waiting for process exit.
+[2026-03-31 12:32:25Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'bd6c8483-a633-4765-bccf-5a00d6f020fc', success rate: 1/1.
+[2026-03-31 12:32:25Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'c61b3973-9eaf-4c1a-9f66-62d918749a36', success rate: 1/1.
+[2026-03-31 12:32:25Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-03-31 12:32:25Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag\blocks\849540e0-05e8-4f34-9b2f-2421b4281b15_36e9014e-c04c-486b-be24-b39e57448b19.1
+[2026-03-31 12:32:26Z INFO JobServerQueue] Try to upload 2 log files or attachments, success rate: 2/2.
+[2026-03-31 12:32:26Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-03-31 12:32:26Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag\blocks\849540e0-05e8-4f34-9b2f-2421b4281b15_bd6c8483-a633-4765-bccf-5a00d6f020fc.1
+[2026-03-31 12:32:27Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'c61b3973-9eaf-4c1a-9f66-62d918749a36', success rate: 1/1.
+[2026-03-31 12:32:27Z INFO JobServerQueue] Tried to upload 2 file(s) to results, success rate: 2/2.
+[2026-03-31 12:32:29Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'c61b3973-9eaf-4c1a-9f66-62d918749a36', success rate: 1/1.
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper] Finished process 30448 with exit code 0, and elapsed time 00:00:03.8544545.
+[2026-03-31 12:32:29Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp\_runner_file_commands\step_summary_a83f0f24-dafc-454e-bc72-c4fe835780a3) is empty; skipping attachment upload
+[2026-03-31 12:32:29Z INFO StepsRunner] Step result: 
+[2026-03-31 12:32:29Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "c61b3973-9eaf-4c1a-9f66-62d918749a36",
+  "stepContextName": "__run_3",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 4,
+  "startTime": "2026-03-31T12:32:25.2299007Z",
+  "finishTime": "2026-03-31T12:32:29.1039409Z"
+}.
+[2026-03-31 12:32:29Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2026-03-31 12:32:29Z INFO StepsRunner] Current state: job state = ''
+[2026-03-31 12:32:29Z INFO StepsRunner] Processing step: DisplayName='Run new container'
+[2026-03-31 12:32:29Z INFO StepsRunner] Evaluating: success()
+[2026-03-31 12:32:29Z INFO StepsRunner] Result: true
+[2026-03-31 12:32:29Z INFO StepsRunner] Starting the step.
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:29Z INFO StepsRunner] Which2: 'chcp'
+[2026-03-31 12:32:29Z INFO StepsRunner] Location: 'C:\WINDOWS\system32\chcp.COM'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper] Starting process:
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\system32\chcp.COM'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper] Process started with process id 8120, waiting for process exit.
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper] Finished process 8120 with exit code 0, and elapsed time 00:00:00.0061242.
+[2026-03-31 12:32:29Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Temp': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp'
+[2026-03-31 12:32:29Z INFO ExecutionContext] Write event payload to C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Temp': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp'
+[2026-03-31 12:32:29Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-03-31 12:32:29Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command error
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command group
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-03-31 12:32:29Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-03-31 12:32:29Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-03-31 12:32:29Z INFO ScriptHandler] Defaulting to powershell
+[2026-03-31 12:32:29Z INFO ScriptHandler] Which2: 'powershell'
+[2026-03-31 12:32:29Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Temp': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp'
+[2026-03-31 12:32:29Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-03-31 12:32:29Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-03-31 12:32:29Z INFO ScriptHandler] Defaulting to powershell
+[2026-03-31 12:32:29Z INFO ScriptHandler] Which2: 'powershell'
+[2026-03-31 12:32:29Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper] Starting process:
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp\754a4787-78a9-43c1-8d1a-b165bd8a9671.ps1'"'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\HW2\HW2'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper] Process started with process id 30352, waiting for process exit.
+[2026-03-31 12:32:29Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'c9dc88e2-d644-4374-81fc-127261c87fa5', success rate: 1/1.
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper] Finished process 30352 with exit code 0, and elapsed time 00:00:00.3646483.
+[2026-03-31 12:32:29Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp\_runner_file_commands\step_summary_f0d4dbb7-bac6-457b-aad0-289ee24753f2) is empty; skipping attachment upload
+[2026-03-31 12:32:29Z INFO StepsRunner] Step result: 
+[2026-03-31 12:32:29Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "c9dc88e2-d644-4374-81fc-127261c87fa5",
+  "stepContextName": "__run_4",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2026-03-31T12:32:29.1052745Z",
+  "finishTime": "2026-03-31T12:32:29.5006327Z"
+}.
+[2026-03-31 12:32:29Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2026-03-31 12:32:29Z INFO StepsRunner] Current state: job state = ''
+[2026-03-31 12:32:29Z INFO StepsRunner] Processing step: DisplayName='Wait for server to start'
+[2026-03-31 12:32:29Z INFO StepsRunner] Evaluating: success()
+[2026-03-31 12:32:29Z INFO StepsRunner] Result: true
+[2026-03-31 12:32:29Z INFO StepsRunner] Starting the step.
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:29Z INFO StepsRunner] Which2: 'chcp'
+[2026-03-31 12:32:29Z INFO StepsRunner] Location: 'C:\WINDOWS\system32\chcp.COM'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper] Starting process:
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\system32\chcp.COM'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper] Process started with process id 6276, waiting for process exit.
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper] Finished process 6276 with exit code 0, and elapsed time 00:00:00.0046704.
+[2026-03-31 12:32:29Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Temp': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp'
+[2026-03-31 12:32:29Z INFO ExecutionContext] Write event payload to C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Temp': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp'
+[2026-03-31 12:32:29Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-03-31 12:32:29Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command error
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command group
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-03-31 12:32:29Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-03-31 12:32:29Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-03-31 12:32:29Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-03-31 12:32:29Z INFO ScriptHandler] Defaulting to powershell
+[2026-03-31 12:32:29Z INFO ScriptHandler] Which2: 'powershell'
+[2026-03-31 12:32:29Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:29Z INFO HostContext] Well known directory 'Temp': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp'
+[2026-03-31 12:32:29Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-03-31 12:32:29Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-03-31 12:32:29Z INFO ScriptHandler] Defaulting to powershell
+[2026-03-31 12:32:29Z INFO ScriptHandler] Which2: 'powershell'
+[2026-03-31 12:32:29Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper] Starting process:
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp\1ca354ff-a8c9-4d48-bb42-93a5925144fc.ps1'"'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\HW2\HW2'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-03-31 12:32:29Z INFO ProcessInvokerWrapper] Process started with process id 27520, waiting for process exit.
+[2026-03-31 12:32:29Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-03-31 12:32:29Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag\blocks\849540e0-05e8-4f34-9b2f-2421b4281b15_c61b3973-9eaf-4c1a-9f66-62d918749a36.1
+[2026-03-31 12:32:29Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'd9aa4d07-291d-451c-88f3-138e53704392', success rate: 1/1.
+[2026-03-31 12:32:30Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:30Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:30Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:30Z INFO JobServerQueue] Try to upload 2 log files or attachments, success rate: 2/2.
+[2026-03-31 12:32:30Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-03-31 12:32:30Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag\blocks\849540e0-05e8-4f34-9b2f-2421b4281b15_c9dc88e2-d644-4374-81fc-127261c87fa5.1
+[2026-03-31 12:32:31Z INFO JobServerQueue] Tried to upload 2 file(s) to results, success rate: 2/2.
+[2026-03-31 12:32:40Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:40Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:40Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:32:50Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:32:50Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:32:50Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:33:00Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:33:00Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:33:00Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:33:10Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:33:10Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:33:10Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper] Finished process 27520 with exit code 0, and elapsed time 00:00:45.1756451.
+[2026-03-31 12:33:14Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp\_runner_file_commands\step_summary_c742789b-e88b-4cd1-9133-a16c3fb64f36) is empty; skipping attachment upload
+[2026-03-31 12:33:14Z INFO StepsRunner] Step result: 
+[2026-03-31 12:33:14Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "d9aa4d07-291d-451c-88f3-138e53704392",
+  "stepContextName": "__run_5",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 46,
+  "startTime": "2026-03-31T12:32:29.5015858Z",
+  "finishTime": "2026-03-31T12:33:14.6930118Z"
+}.
+[2026-03-31 12:33:14Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2026-03-31 12:33:14Z INFO StepsRunner] Current state: job state = ''
+[2026-03-31 12:33:14Z INFO StepsRunner] Processing step: DisplayName='Health check'
+[2026-03-31 12:33:14Z INFO StepsRunner] Evaluating: success()
+[2026-03-31 12:33:14Z INFO StepsRunner] Result: true
+[2026-03-31 12:33:14Z INFO StepsRunner] Starting the step.
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:33:14Z INFO StepsRunner] Which2: 'chcp'
+[2026-03-31 12:33:14Z INFO StepsRunner] Location: 'C:\WINDOWS\system32\chcp.COM'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper] Starting process:
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\system32\chcp.COM'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper] Process started with process id 16996, waiting for process exit.
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper] Finished process 16996 with exit code 0, and elapsed time 00:00:00.0058083.
+[2026-03-31 12:33:14Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Temp': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp'
+[2026-03-31 12:33:14Z INFO ExecutionContext] Write event payload to C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Temp': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp'
+[2026-03-31 12:33:14Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-03-31 12:33:14Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command error
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command group
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-03-31 12:33:14Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-03-31 12:33:14Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-03-31 12:33:14Z INFO ScriptHandler] Defaulting to powershell
+[2026-03-31 12:33:14Z INFO ScriptHandler] Which2: 'powershell'
+[2026-03-31 12:33:14Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Temp': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp'
+[2026-03-31 12:33:14Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-03-31 12:33:14Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-03-31 12:33:14Z INFO ScriptHandler] Defaulting to powershell
+[2026-03-31 12:33:14Z INFO ScriptHandler] Which2: 'powershell'
+[2026-03-31 12:33:14Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper] Starting process:
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp\7301b206-f3e2-403b-b2bc-dec418502f18.ps1'"'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\HW2\HW2'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper] Process started with process id 30612, waiting for process exit.
+[2026-03-31 12:33:14Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'c5de0950-2b48-4bcb-a081-10ca954f30be', success rate: 1/1.
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper] Finished process 30612 with exit code 0, and elapsed time 00:00:00.1404680.
+[2026-03-31 12:33:14Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp\_runner_file_commands\step_summary_94213112-fd49-4d2a-a4b5-0e9baa85cb08) is empty; skipping attachment upload
+[2026-03-31 12:33:14Z INFO StepsRunner] Step result: 
+[2026-03-31 12:33:14Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "c5de0950-2b48-4bcb-a081-10ca954f30be",
+  "stepContextName": "__run_6",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2026-03-31T12:33:14.693886Z",
+  "finishTime": "2026-03-31T12:33:14.8521626Z"
+}.
+[2026-03-31 12:33:14Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2026-03-31 12:33:14Z INFO StepsRunner] Current state: job state = ''
+[2026-03-31 12:33:14Z INFO StepsRunner] Processing step: DisplayName='Cleanup old images'
+[2026-03-31 12:33:14Z INFO StepsRunner] Evaluating: success()
+[2026-03-31 12:33:14Z INFO StepsRunner] Result: true
+[2026-03-31 12:33:14Z INFO StepsRunner] Starting the step.
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:33:14Z INFO StepsRunner] Which2: 'chcp'
+[2026-03-31 12:33:14Z INFO StepsRunner] Location: 'C:\WINDOWS\system32\chcp.COM'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper] Starting process:
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\system32\chcp.COM'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper] Process started with process id 29984, waiting for process exit.
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper] Finished process 29984 with exit code 0, and elapsed time 00:00:00.0046990.
+[2026-03-31 12:33:14Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Temp': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp'
+[2026-03-31 12:33:14Z INFO ExecutionContext] Write event payload to C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Temp': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp'
+[2026-03-31 12:33:14Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-03-31 12:33:14Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command error
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command group
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-03-31 12:33:14Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-03-31 12:33:14Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-03-31 12:33:14Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-03-31 12:33:14Z INFO ScriptHandler] Defaulting to powershell
+[2026-03-31 12:33:14Z INFO ScriptHandler] Which2: 'powershell'
+[2026-03-31 12:33:14Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:33:14Z INFO HostContext] Well known directory 'Temp': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp'
+[2026-03-31 12:33:14Z INFO ScriptHandler] Which2: 'pwsh'
+[2026-03-31 12:33:14Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2026-03-31 12:33:14Z INFO ScriptHandler] Defaulting to powershell
+[2026-03-31 12:33:14Z INFO ScriptHandler] Which2: 'powershell'
+[2026-03-31 12:33:14Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper] Starting process:
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp\83989128-df9b-459f-84b1-d969a0da396a.ps1'"'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\HW2\HW2'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-03-31 12:33:14Z INFO ProcessInvokerWrapper] Process started with process id 25996, waiting for process exit.
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper] Finished process 25996 with exit code 0, and elapsed time 00:00:00.1879109.
+[2026-03-31 12:33:15Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp\_runner_file_commands\step_summary_bfe8ea90-d3c1-402f-a08b-1b32dd069e08) is empty; skipping attachment upload
+[2026-03-31 12:33:15Z INFO StepsRunner] Step result: 
+[2026-03-31 12:33:15Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "59b72000-a09c-454d-9d38-a290c3bc95be",
+  "stepContextName": "__run_7",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2026-03-31T12:33:14.8528582Z",
+  "finishTime": "2026-03-31T12:33:15.0559052Z"
+}.
+[2026-03-31 12:33:15Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2026-03-31 12:33:15Z INFO StepsRunner] Current state: job state = ''
+[2026-03-31 12:33:15Z INFO StepsRunner] Processing step: DisplayName='Post Log in to Docker Hub'
+[2026-03-31 12:33:15Z INFO StepsRunner] Evaluating: always()
+[2026-03-31 12:33:15Z INFO StepsRunner] Result: true
+[2026-03-31 12:33:15Z INFO StepsRunner] Starting the step.
+[2026-03-31 12:33:15Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:33:15Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:33:15Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:33:15Z INFO StepsRunner] Which2: 'chcp'
+[2026-03-31 12:33:15Z INFO StepsRunner] Location: 'C:\WINDOWS\system32\chcp.COM'
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper] Starting process:
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\system32\chcp.COM'
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper] Process started with process id 14916, waiting for process exit.
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper] Finished process 14916 with exit code 0, and elapsed time 00:00:00.0043820.
+[2026-03-31 12:33:15Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2026-03-31 12:33:15Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:33:15Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:33:15Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:33:15Z INFO HostContext] Well known directory 'Actions': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_actions'
+[2026-03-31 12:33:15Z INFO ActionManager] Load action that reference repository from 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_actions\docker\login-action\v3'
+[2026-03-31 12:33:15Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:33:15Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:33:15Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:33:15Z INFO HostContext] Well known directory 'Actions': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_actions'
+[2026-03-31 12:33:15Z INFO ActionManifestManagerLegacy] Ignore action property author.
+[2026-03-31 12:33:15Z INFO ActionManifestManagerLegacy] Ignore action property branding.
+[2026-03-31 12:33:15Z INFO ActionManifestManagerLegacy] Loaded action.yml file: {
+  "name": "Docker Login",
+  "description": "GitHub Action to login against a Docker registry",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 10,
+          "col": 3,
+          "lit": "registry"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 13,
+          "col": 3,
+          "lit": "username"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 16,
+          "col": 3,
+          "lit": "password"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 19,
+          "col": 3,
+          "lit": "ecr"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 22,
+          "col": 3,
+          "lit": "scope"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "logout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 27,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 29,
+          "col": 3,
+          "lit": "registry-auth"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2026-03-31 12:33:15Z INFO ActionManager] Action pre node.js file: N/A.
+[2026-03-31 12:33:15Z INFO ActionManager] Action node.js file: dist/index.js.
+[2026-03-31 12:33:15Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2026-03-31 12:33:15Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:33:15Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:33:15Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:33:15Z INFO HostContext] Well known directory 'Temp': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp'
+[2026-03-31 12:33:15Z INFO ExecutionContext] Write event payload to C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp\_github_workflow\event.json
+[2026-03-31 12:33:15Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:33:15Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:33:15Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 12:33:15Z INFO HostContext] Well known directory 'Temp': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp'
+[2026-03-31 12:33:15Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2026-03-31 12:33:15Z INFO ActionManifestManagerLegacy] Input 'registry': default value evaluate result: ""
+[2026-03-31 12:33:15Z INFO ActionManifestManagerLegacy] Input 'ecr': default value evaluate result: ""
+[2026-03-31 12:33:15Z INFO ActionManifestManagerLegacy] Input 'scope': default value evaluate result: ""
+[2026-03-31 12:33:15Z INFO ActionManifestManagerLegacy] Input 'logout': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 27,
+  "col": 14,
+  "lit": "true"
+}
+[2026-03-31 12:33:15Z INFO ActionManifestManagerLegacy] Input 'registry-auth': default value evaluate result: ""
+[2026-03-31 12:33:15Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2026-03-31 12:33:15Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2026-03-31 12:33:15Z INFO ActionCommandManager] Register action command extension for command set-env
+[2026-03-31 12:33:15Z INFO ActionCommandManager] Register action command extension for command set-output
+[2026-03-31 12:33:15Z INFO ActionCommandManager] Register action command extension for command save-state
+[2026-03-31 12:33:15Z INFO ActionCommandManager] Register action command extension for command add-path
+[2026-03-31 12:33:15Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2026-03-31 12:33:15Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2026-03-31 12:33:15Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2026-03-31 12:33:15Z INFO ActionCommandManager] Register action command extension for command warning
+[2026-03-31 12:33:15Z INFO ActionCommandManager] Register action command extension for command error
+[2026-03-31 12:33:15Z INFO ActionCommandManager] Register action command extension for command notice
+[2026-03-31 12:33:15Z INFO ActionCommandManager] Register action command extension for command debug
+[2026-03-31 12:33:15Z INFO ActionCommandManager] Register action command extension for command group
+[2026-03-31 12:33:15Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2026-03-31 12:33:15Z INFO ActionCommandManager] Register action command extension for command echo
+[2026-03-31 12:33:15Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:33:15Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:33:15Z INFO HostContext] Well known directory 'Externals': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\externals'
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper] Starting process:
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper]   File name: 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\externals\node20\bin\node.exe'
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper]   Arguments: '"C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_actions\docker\login-action\v3\dist/index.js"'
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\HW2\HW2'
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2026-03-31 12:33:15Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'c5de0950-2b48-4bcb-a081-10ca954f30be', success rate: 1/1.
+[2026-03-31 12:33:15Z INFO JobServerQueue] Try to append 1 batches web console lines for record '59b72000-a09c-454d-9d38-a290c3bc95be', success rate: 1/1.
+[2026-03-31 12:33:15Z INFO JobServerQueue] Try to append 1 batches web console lines for record '2b18a031-47df-4f05-9f10-19ffd7217227', success rate: 1/1.
+[2026-03-31 12:33:15Z INFO JobServerQueue] Try to upload 3 log files or attachments, success rate: 3/3.
+[2026-03-31 12:33:15Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-03-31 12:33:15Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag\blocks\849540e0-05e8-4f34-9b2f-2421b4281b15_d9aa4d07-291d-451c-88f3-138e53704392.1
+[2026-03-31 12:33:15Z INFO ProcessInvokerWrapper] Process started with process id 2120, waiting for process exit.
+[2026-03-31 12:33:16Z INFO JobServerQueue] Try to append 1 batches web console lines for record '2b18a031-47df-4f05-9f10-19ffd7217227', success rate: 1/1.
+[2026-03-31 12:33:16Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-03-31 12:33:16Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag\blocks\849540e0-05e8-4f34-9b2f-2421b4281b15_c5de0950-2b48-4bcb-a081-10ca954f30be.1
+[2026-03-31 12:33:17Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-03-31 12:33:17Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag\blocks\849540e0-05e8-4f34-9b2f-2421b4281b15_59b72000-a09c-454d-9d38-a290c3bc95be.1
+[2026-03-31 12:33:17Z INFO JobServerQueue] Tried to upload 3 file(s) to results, success rate: 3/3.
+[2026-03-31 12:33:19Z INFO JobServerQueue] Stop aggressive process web console line queue.
+[2026-03-31 12:33:19Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:33:19Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-03-31 12:33:19Z INFO ProcessInvokerWrapper] Finished process 2120 with exit code 0, and elapsed time 00:00:04.7150077.
+[2026-03-31 12:33:19Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp\_runner_file_commands\step_summary_1b199dc0-878b-4640-b537-ce1936012d9d) is empty; skipping attachment upload
+[2026-03-31 12:33:19Z INFO StepsRunner] Step result: 
+[2026-03-31 12:33:19Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "docker/login-action",
+  "ref": "v3",
+  "type": "node20",
+  "stage": "Post",
+  "stepId": "2b18a031-47df-4f05-9f10-19ffd7217227",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 5,
+  "startTime": "2026-03-31T12:33:15.0568451Z",
+  "finishTime": "2026-03-31T12:33:19.7817503Z"
+}.
+[2026-03-31 12:33:19Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2026-03-31 12:33:19Z INFO StepsRunner] Current state: job state = ''
+[2026-03-31 12:33:19Z INFO JobRunner] Finalize job.
+[2026-03-31 12:33:19Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:33:19Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:33:19Z INFO HostContext] Well known directory 'Diag': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag'
+[2026-03-31 12:33:19Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:33:19Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:33:19Z INFO HostContext] Well known directory 'Diag': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag'
+[2026-03-31 12:33:19Z INFO JobExtension] Initialize Env context
+[2026-03-31 12:33:19Z INFO JobExtension] Initialize steps context
+[2026-03-31 12:33:19Z INFO JobExtension] Total accessible running process: 303.
+[2026-03-31 12:33:19Z INFO JobExtension] Inspecting process environment variables. PID: 5520 (docker)
+[2026-03-31 12:33:19Z INFO JobExtension] Inspecting process environment variables. PID: 9700 (docker)
+[2026-03-31 12:33:19Z INFO JobExtension] Inspecting process environment variables. PID: 9816 (conhost)
+[2026-03-31 12:33:19Z INFO JobExtension] Inspecting process environment variables. PID: 384 (docker)
+[2026-03-31 12:33:19Z INFO JobExtension] Inspecting process environment variables. PID: 27520 (conhost)
+[2026-03-31 12:33:19Z INFO JobExtension] Inspecting process environment variables. PID: 31016 (conhost)
+[2026-03-31 12:33:19Z INFO JobExtension] Wait for all connectivity checks to finish.
+[2026-03-31 12:33:19Z INFO JobExtension] Connectivity check result: GitHub.Runner.Worker.JobExtension+CheckResult
+[2026-03-31 12:33:19Z INFO JobExtension] Connectivity check result: GitHub.Runner.Worker.JobExtension+CheckResult
+[2026-03-31 12:33:19Z INFO JobExtension] Connectivity check result: GitHub.Runner.Worker.JobExtension+CheckResult
+[2026-03-31 12:33:19Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "complete_job",
+  "type": "runner",
+  "stage": "Post",
+  "stepId": "09654d12-0cad-4217-9e2e-4a63f7d5ad72",
+  "result": "succeeded",
+  "errorMessages": [
+    "Node.js 20 actions are deprecated. The following actions are running on Node.js 20 and may not work as expected: docker/login-action@v3. Actions will be forced to run with Node.js 24 by default starting June 2nd, 2026. Node.js 20 will be removed from the r"
+  ],
+  "executionTimeInSeconds": 1,
+  "startTime": "2026-03-31T12:33:19.7845661Z",
+  "finishTime": "2026-03-31T12:33:19.8008263Z"
+}.
+[2026-03-31 12:33:19Z INFO JobRunner] Job result after all job steps finish: Succeeded
+[2026-03-31 12:33:19Z INFO JobRunner] Completing the job execution context.
+[2026-03-31 12:33:19Z INFO JobRunner] Shutting down the job server queue.
+[2026-03-31 12:33:19Z INFO JobServerQueue] Fire signal to shutdown all queues.
+[2026-03-31 12:33:20Z INFO JobServerQueue] All queue process task stopped.
+[2026-03-31 12:33:20Z INFO JobServerQueue] Try to append 1 batches web console lines for record '2b18a031-47df-4f05-9f10-19ffd7217227', success rate: 1/1.
+[2026-03-31 12:33:20Z INFO JobServerQueue] Try to append 1 batches web console lines for record '09654d12-0cad-4217-9e2e-4a63f7d5ad72', success rate: 1/1.
+[2026-03-31 12:33:20Z INFO JobServerQueue] Web console line queue drained.
+[2026-03-31 12:33:20Z INFO JobServerQueue] Uploading 3 files in one shot.
+[2026-03-31 12:33:20Z INFO JobServerQueue] Try to upload 3 log files or attachments, success rate: 3/3.
+[2026-03-31 12:33:20Z INFO JobServerQueue] File upload queue drained.
+[2026-03-31 12:33:20Z INFO JobServerQueue] Starting results-based upload queue...
+[2026-03-31 12:33:20Z INFO JobServerQueue] Uploading 3 file(s) in one shot through results service.
+[2026-03-31 12:33:20Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-03-31 12:33:20Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag\blocks\849540e0-05e8-4f34-9b2f-2421b4281b15_2b18a031-47df-4f05-9f10-19ffd7217227.1
+[2026-03-31 12:33:20Z INFO JobServerQueue] Got a step log file to send to results service.
+[2026-03-31 12:33:20Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag\blocks\849540e0-05e8-4f34-9b2f-2421b4281b15_09654d12-0cad-4217-9e2e-4a63f7d5ad72.1
+[2026-03-31 12:33:21Z INFO JobServerQueue] Got a job log file to send to results service.
+[2026-03-31 12:33:21Z INFO JobServerQueue] Starting upload of job log file to results service ResultsLog, C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag\blocks\849540e0-05e8-4f34-9b2f-2421b4281b15_0448536b-d2eb-5f6c-8b87-59a0bce55efe.1
+[2026-03-31 12:33:22Z INFO JobServerQueue] Tried to upload 3 file(s) to results, success rate: 3/3.
+[2026-03-31 12:33:22Z INFO JobServerQueue] Results upload queue drained.
+[2026-03-31 12:33:22Z INFO JobServerQueue] Timeline update queue drained.
+[2026-03-31 12:33:22Z INFO JobServerQueue] Disposing job server ...
+[2026-03-31 12:33:22Z INFO JobServerQueue] Disposing results server ...
+[2026-03-31 12:33:22Z INFO JobServerQueue] All queue process tasks have been stopped, and all queues are drained.
+[2026-03-31 12:33:22Z INFO TempDirectoryManager] Cleaning runner temp folder: C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work\_temp
+[2026-03-31 12:33:22Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 12:33:22Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 12:33:22Z INFO HostContext] Well known directory 'Diag': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag'
+[2026-03-31 12:33:22Z INFO HostContext] Well known config file 'Telemetry': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_diag\.telemetry'
+[2026-03-31 12:33:22Z INFO JobRunner] Raising job completed against run service
+[2026-03-31 12:33:23Z INFO Worker] Job completed.

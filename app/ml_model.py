@@ -36,16 +36,42 @@ class MathOCRModel:
         return cleaned
 
     def _try_solve(self, formula: str, is_latex: bool) -> str:
-        """Internal helper to try and solve a formula."""
+        """Internal helper to try and solve an equation or simplify expression."""
         try:
             if is_latex:
+                # 1. Parse LaTeX
                 expr = parse_latex(formula)
             else:
-                expr = sympy.sympify(formula)
+                # 2. Parse plain text (Handle '=' for Equations)
+                if '=' in formula:
+                    lhs_str, rhs_str = formula.split('=')
+                    # Pre-clean strings
+                    lhs = sympy.sympify(lhs_str.strip())
+                    rhs = sympy.sympify(rhs_str.strip())
+                    expr = sympy.Eq(lhs, rhs)
+                else:
+                    expr = sympy.sympify(formula)
+
+            # 3. Logic for Equation vs Expression
+            # If it's an equation (Equality object from Sympy)
+            if isinstance(expr, sympy.Equality):
+                # Identify variables (Symbols)
+                symbols = list(expr.free_symbols)
+                if symbols:
+                    # Solve for the primary variable (usually 'x')
+                    # We sort symbols to prioritize 'x' if multiple exist
+                    target_symbol = sorted(symbols, key=lambda s: str(s))[0]
+                    solutions = sympy.solve(expr, target_symbol)
+                    return f"{target_symbol} = {solutions}"
+                else:
+                    # No variables, just verify if true/false (e.g. 1 = 1)
+                    return str(sympy.simplify(expr))
             
+            # 4. Logic for simple expressions (Simplify)
             simplified = sympy.simplify(expr)
             return str(simplified)
-        except Exception:
+        except Exception as e:
+            logger.warning(f"Solving failed: {e}")
             return None
 
     def predict(self, image: Image.Image) -> dict:
