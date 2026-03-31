@@ -1,5 +1,5 @@
-# 1. Base Image - Use Python 3.10 slim for a smaller footprint
-FROM python:3.10-slim
+# 1. Base Image - Use Python 3.10 (Full image to bypass apt-get issues)
+FROM python:3.10
 
 # 2. Set working directory
 WORKDIR /app
@@ -10,14 +10,8 @@ ENV PYTHONDONTWRITEBYTECODE 1
 # Prevents Python from buffering stdout and stderr
 ENV PYTHONUNBUFFERED 1
 # Set cache folder for pix2tex to use inside the container
-ENV XDG_CACHE_HOME=/app/.cache 
+ENV XDG_CACHE_HOME=/app/.cache
 
-# 4. Install system dependencies required by Pillow and ML packages
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    gcc \
-    libgl1 \
-    libglib2.0-0 \
-    && rm -rf /var/lib/apt/lists/*
 
 # 5. Install Python dependencies
 # Copy only requirements first, to cache this layer
