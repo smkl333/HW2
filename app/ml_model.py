@@ -38,17 +38,22 @@ class MathOCRModel:
     def _try_solve(self, formula: str, is_latex: bool) -> str:
         """Internal helper to try and solve an equation or simplify expression."""
         try:
-            if is_latex:
-                # 1. Parse LaTeX
-                expr = parse_latex(formula)
-            else:
-                # 2. Parse plain text (Handle '=' for Equations)
-                if '=' in formula:
-                    lhs_str, rhs_str = formula.split('=')
-                    # Pre-clean strings
+            logger.info(f"Processing Formula: '{formula}' (is_latex: {is_latex})")
+            
+            # 1. Detect and Handle Equality (=) for both LaTeX and Text
+            if '=' in formula:
+                lhs_str, rhs_str = formula.split('=', 1)
+                if is_latex:
+                    lhs = parse_latex(lhs_str.strip())
+                    rhs = parse_latex(rhs_str.strip())
+                else:
                     lhs = sympy.sympify(lhs_str.strip())
                     rhs = sympy.sympify(rhs_str.strip())
-                    expr = sympy.Eq(lhs, rhs)
+                expr = sympy.Eq(lhs, rhs)
+            else:
+                # 2. Handle simple expressions without '='
+                if is_latex:
+                    expr = parse_latex(formula)
                 else:
                     expr = sympy.sympify(formula)
 
