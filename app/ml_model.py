@@ -1,5 +1,5 @@
 import logging
-from PIL import Image
+from PIL import Image, ImageEnhance
 from pix2tex.cli import LatexOCR
 import sympy
 from sympy.parsing.latex import parse_latex
@@ -19,72 +19,83 @@ class MathOCRModel:
         self.handwriting_reader = handwriting_reader # Reference to EasyOCR reader
         logger.info("Math OCR Model loaded successfully.")
 
+    def _enhance_image(self, image: Image.Image) -> Image.Image:
+        """Boost contrast to make handwriting clearer for AI."""
+        enhancer = ImageEnhance.Contrast(image)
+        return enhancer.enhance(2.0) # Double the contrast
+
     def _clean_math_text(self, text: str) -> str:
-        """Helper to clean OCR text for math parsing."""
-        # Remove spaces and common handwriting OCR misinterpretations
-        text = text.replace(" ", "")
-        # Basic mapping for handwritten math symbols
-        mapping = {'x': '*', 'l': '1', '|': '1', 'o': '0', 'X': '*'}
+        """Helper to clean OCR text specifically for math solver."""
+        # 1. Basic mapping for common handwritten OCR mistakes
+        mapping = {'X': '*', 'x': '*', '|': '1', 'l': '1', 'o': '0', 'O': '0', 'i': '1'}
         for old, new in mapping.items():
             text = text.replace(old, new)
-        return text
+        
+        # 2. Keep only math-relevant characters (numbers, operators, dots, parens)
+        cleaned = re.sub(r'[^0-9+\-*/().=^]', '', text)
+        return cleaned
+
+    def _try_solve(self, formula: str, is_latex: bool) -> str:
+        """Internal helper to try and solve a formula."""
+        try:
+            if is_latex:
+                expr = parse_latex(formula)
+            else:
+                expr = sympy.sympify(formula)
+            
+            simplified = sympy.simplify(expr)
+            return str(simplified)
+        except Exception:
+            return None
 
     def predict(self, image: Image.Image) -> dict:
         """
-        Intelligent ensemble prediction: Try pix2tex first, fallback to EasyOCR for handwriting.
+        Final Polish: Intelligent ensemble with contrast enhancement and aggressive fallback.
         """
-        # 1. Primary Inference (pix2tex - LaTeX Optimized)
+        # 1. Primary Inference (pix2tex)
         recognized_math = ""
+        solved_result = None
         used_fallback = False
         
         try:
             recognized_math = self.model(image)
-        except Exception as e:
-            logger.warning(f"Primary inference failed: {e}. Trying fallback...")
+            if recognized_math:
+                solved_result = self._try_solve(recognized_math, is_latex=True)
+        except Exception:
             recognized_math = ""
 
-        # 2. Intelligent Fallback (If pix2tex result is suspect or empty)
-        # Often messy handwriting like "1+1" returns empty or just "1" in pix2tex
-        if not recognized_math or len(recognized_math.strip()) < 3:
+        # 2. High-Performance Fallback (If Primary failed or was unsolvable)
+        # messy handwriting often fails pix2tex or returns nonsensical LaTeX
+        if not solved_result:
             if self.handwriting_reader:
                 try:
-                    logger.info("Suspected handwritten or simple input. Running EasyOCR fallback...")
-                    image_np = np.array(image.convert("RGB"))
+                    logger.info("Primary model failed or unsolvable. Boosting contrast and running EasyOCR fallback...")
+                    # Pre-process: Enhance contrast for better handwriting recognition
+                    enhanced_img = self._enhance_image(image)
+                    image_np = np.array(enhanced_img.convert("RGB"))
+                    
                     ocr_results = self.handwriting_reader.readtext(image_np)
                     fallback_text = "".join([res[1] for res in ocr_results])
                     
                     if fallback_text:
-                        recognized_math = self._clean_math_text(fallback_text)
-                        used_fallback = True
-                        logger.info(f"Fallback successful: {recognized_math}")
+                        cleaned_math = self._clean_math_text(fallback_text)
+                        fallback_solved = self._try_solve(cleaned_math, is_latex=False)
+                        
+                        if fallback_solved:
+                            recognized_math = cleaned_math
+                            solved_result = fallback_solved
+                            used_fallback = True
+                            logger.info(f"Fallback SUCCESS: {recognized_math} = {solved_result}")
                 except Exception as e:
-                    logger.error(f"Fallback inference failed: {e}")
+                    logger.error(f"Fallback failed: {e}")
 
         if not recognized_math:
-             raise RuntimeError("Could not recognize any mathematical expression in the image.")
-
-        # 3. Evaluation (Parsing to Result)
-        solved_result = None
-        try:
-            # If we used fallback, it's plain text math. If not, it's LaTeX.
-            if used_fallback:
-                # Basic python-style math evaluation via sympy
-                expr = sympy.sympify(recognized_math)
-            else:
-                # LaTeX parsing
-                expr = parse_latex(recognized_math)
-            
-            simplified_expr = sympy.simplify(expr)
-            solved_result = str(simplified_expr)
-            
-        except Exception as e:
-            logger.warning(f"Could not solve the equation: {e}")
-            solved_result = "Recognized, but cannot solve. Check the formula."
+             raise RuntimeError("Could not recognize any mathematical expression. Please try a clearer image.")
 
         return {
             "formula": recognized_math,
-            "solved": solved_result,
-            "method": "Ensemble(EasyOCR)" if used_fallback else "Primary(pix2tex)"
+            "solved": solved_result if solved_result else "Recognized, but cannot solve. Check the formula.",
+            "method": "Ensemble(EasyOCR+Enhanced)" if used_fallback else "Primary(pix2tex)"
         }
 
 class HandwritingModel:

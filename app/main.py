@@ -89,33 +89,8 @@ async def solve_math_equation(file: UploadFile = File(...)):
         logger.error(f"Prediction error: {e}")
         return JSONResponse(status_code=500, content={"error": str(e)})
 
-@app.post("/analyze-text")
-async def analyze_handwriting(file: UploadFile = File(...)):
-    """
-    Endpoint for recognizing general handwritten or printed text (Multilingual).
-    """
-    if not file.content_type.startswith("image/"):
-        raise HTTPException(status_code=400, detail="Invalid file type. Please upload an image.")
-    
-    try:
-        image_bytes = await file.read()
-        image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
     except Exception as e:
-        raise HTTPException(status_code=400, detail=f"Failed to read image file: {str(e)}")
-    
-    model = ml_models.get("handwriting")
-    if not model:
-        raise HTTPException(status_code=503, detail="Handwriting model is currently loading or unavailable.")
-    
-    try:
-        prediction = model.predict(image)
-        return {
-            "status": "success",
-            "filename": file.filename,
-            "data": prediction
-        }
-    except Exception as e:
-        logger.error(f"Handwriting OCR error: {e}")
+        logger.error(f"Prediction error: {e}")
         return JSONResponse(status_code=500, content={"error": str(e)})
 
 if __name__ == "__main__":
