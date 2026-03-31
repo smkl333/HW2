@@ -1,0 +1,48 @@
+import logging
+from PIL import Image
+from pix2tex.cli import LatexOCR
+import sympy
+from sympy.parsing.latex import parse_latex
+
+logger = logging.getLogger(__name__)
+
+class MathOCRModel:
+    def __init__(self):
+        """
+        Initialize the ML model. 
+        In an MLOps pipeline, model weights are loaded here (once during server startup).
+        """
+        logger.info("Loading Vision Transformer model (pix2tex) into memory...")
+        self.model = LatexOCR() # Automatically downloads pretrained weights on first run
+        logger.info("Model loaded successfully.")
+
+    def predict(self, image: Image.Image) -> dict:
+        """
+        Run inference on the image and try to solve the parsed mathematical expression.
+        """
+        # 1. Inference (Image -> LaTeX string)
+        try:
+            recognized_latex = self.model(image)
+        except Exception as e:
+            logger.error(f"Inference failed: {e}")
+            raise RuntimeError(f"Failed to extract equation from image: {str(e)}")
+
+        # 2. Evaluation / Post-processing (LaTeX -> Mathematical Result)
+        solved_result = None
+        try:
+            # Parse LaTeX string into a SymPy object
+            expr = parse_latex(recognized_latex)
+            
+            # Evaluate/Simplify the expression (e.g., '1+1' -> '2')
+            simplified_expr = sympy.simplify(expr)
+            solved_result = str(simplified_expr)
+            
+        except Exception as e:
+            # Non-evaluable models like equations or complex calculus will fall here
+            logger.warning(f"Could not solve the recognized equation: {e}")
+            solved_result = "Equation parsed, but cannot evaluate automatically."
+
+        return {
+            "latex_raw": recognized_latex,
+            "solved": solved_result
+        }
