@@ -20,9 +20,14 @@ async def lifespan(current_app: FastAPI):
     # Load the ML model gracefully when the server starts up
     logger.info("Starting up MLOps pipeline...")
     try:
-        ml_models["math_ocr"] = MathOCRModel()
-        ml_models["handwriting"] = HandwritingModel()
-        logger.info("All ML Models successfully loaded and registered.")
+        # 1. Initialize Handwriting model first
+        handwriting_model = HandwritingModel()
+        ml_models["handwriting"] = handwriting_model
+        
+        # 2. Inject Handwriting reader into MathOCRModel for intelligent fallback
+        ml_models["math_ocr"] = MathOCRModel(handwriting_reader=handwriting_model.reader)
+        
+        logger.info("Intelligent Ensemble Models successfully loaded and registered.")
     except Exception as e:
         logger.error(f"Failed to load ML Models: {e}")
         
@@ -33,9 +38,9 @@ async def lifespan(current_app: FastAPI):
     logger.info("Shutting down MLOps pipeline...")
 
 app = FastAPI(
-    title="Multi-Model Math & Handwriting MLOps API",
-    description="A FastAPI app serving both Math OCR (pix2tex) and General Handwriting OCR (EasyOCR).",
-    version="1.1.0",
+    title="Intelligent Ensemble Math Solver API",
+    description="A FastAPI app that uses an ensemble of pix2tex and EasyOCR to solve both printed and handwritten math problems.",
+    version="1.2.0",
     lifespan=lifespan
 )
 
