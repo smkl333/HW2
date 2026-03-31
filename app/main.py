@@ -6,7 +6,7 @@ from PIL import Image
 import uvicorn
 import logging
 
-from app.ml_model import MathOCRModel
+from app.ml_model import MathOCRModel, HandwritingModel
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -21,9 +21,10 @@ async def lifespan(current_app: FastAPI):
     logger.info("Starting up MLOps pipeline...")
     try:
         ml_models["math_ocr"] = MathOCRModel()
-        logger.info("ML Model successfully loaded and registered.")
+        ml_models["handwriting"] = HandwritingModel()
+        logger.info("All ML Models successfully loaded and registered.")
     except Exception as e:
-        logger.error(f"Failed to load ML Model: {e}")
+        logger.error(f"Failed to load ML Models: {e}")
         
     yield # The app runs here
     
@@ -32,19 +33,23 @@ async def lifespan(current_app: FastAPI):
     logger.info("Shutting down MLOps pipeline...")
 
 app = FastAPI(
-    title="Math OCR MLOps API",
-    description="A FastAPI app acting as the serving layer for our math recognition model (pix2tex).",
-    version="1.0.0",
+    title="Multi-Model Math & Handwriting MLOps API",
+    description="A FastAPI app serving both Math OCR (pix2tex) and General Handwriting OCR (EasyOCR).",
+    version="1.1.0",
     lifespan=lifespan
 )
 
 @app.get("/health")
 def health_check():
     """Endpoint for monitoring pipeline health"""
-    model_loaded = "math_ocr" in ml_models
+    math_loaded = "math_ocr" in ml_models
+    handwriting_loaded = "handwriting" in ml_models
     return {
-        "status": "healthy" if model_loaded else "loading/failed",
-        "model_loaded": model_loaded
+        "status": "healthy" if (math_loaded and handwriting_loaded) else "loading/failed",
+        "models": {
+            "math_ocr": math_loaded,
+            "handwriting": handwriting_loaded
+        }
     }
 
 @app.post("/solve")
@@ -77,6 +82,35 @@ async def solve_math_equation(file: UploadFile = File(...)):
         }
     except Exception as e:
         logger.error(f"Prediction error: {e}")
+        return JSONResponse(status_code=500, content={"error": str(e)})
+
+@app.post("/analyze-text")
+async def analyze_handwriting(file: UploadFile = File(...)):
+    """
+    Endpoint for recognizing general handwritten or printed text (Multilingual).
+    """
+    if not file.content_type.startswith("image/"):
+        raise HTTPException(status_code=400, detail="Invalid file type. Please upload an image.")
+    
+    try:
+        image_bytes = await file.read()
+        image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Failed to read image file: {str(e)}")
+    
+    model = ml_models.get("handwriting")
+    if not model:
+        raise HTTPException(status_code=503, detail="Handwriting model is currently loading or unavailable.")
+    
+    try:
+        prediction = model.predict(image)
+        return {
+            "status": "success",
+            "filename": file.filename,
+            "data": prediction
+        }
+    except Exception as e:
+        logger.error(f"Handwriting OCR error: {e}")
         return JSONResponse(status_code=500, content={"error": str(e)})
 
 if __name__ == "__main__":

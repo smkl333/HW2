@@ -1,0 +1,145 @@
+[2026-03-31 11:44:29Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2026-03-31 11:44:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 11:44:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 11:44:29Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.credentials'
+[2026-03-31 11:44:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 11:44:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 11:44:29Z INFO HostContext] Well known config file 'Runner': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.runner'
+[2026-03-31 11:44:29Z INFO Listener] Runner is built for Windows (X64) - win-x64.
+[2026-03-31 11:44:29Z INFO Listener] RuntimeInformation: Microsoft Windows 10.0.26200.
+[2026-03-31 11:44:29Z INFO Listener] Version: 2.333.1
+[2026-03-31 11:44:29Z INFO Listener] Commit: 6792966801e8925346735b68c03bf9f347af4646
+[2026-03-31 11:44:29Z INFO Listener] Culture: ko-KR
+[2026-03-31 11:44:29Z INFO Listener] UI Culture: ko-KR
+[2026-03-31 11:44:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 11:44:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 11:44:29Z INFO Listener] Validating directory permissions for: 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 11:44:29Z INFO CommandLineParser] Parse
+[2026-03-31 11:44:29Z INFO CommandLineParser] Parsing 1 args
+[2026-03-31 11:44:29Z INFO CommandLineParser] parsing argument
+[2026-03-31 11:44:29Z INFO CommandLineParser] HasArgs: False
+[2026-03-31 11:44:29Z INFO CommandLineParser] Adding Command: run
+[2026-03-31 11:44:29Z INFO Listener] Arguments parsed
+[2026-03-31 11:44:29Z INFO Runner] ExecuteCommand
+[2026-03-31 11:44:29Z INFO ConfigurationStore] currentAssemblyLocation: C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin\Runner.Listener.dll
+[2026-03-31 11:44:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 11:44:29Z INFO ConfigurationStore] binPath: C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin
+[2026-03-31 11:44:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 11:44:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 11:44:29Z INFO ConfigurationStore] RootFolder: C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner
+[2026-03-31 11:44:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 11:44:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 11:44:29Z INFO HostContext] Well known config file 'Runner': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.runner'
+[2026-03-31 11:44:29Z INFO ConfigurationStore] ConfigFilePath: C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.runner
+[2026-03-31 11:44:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 11:44:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 11:44:29Z INFO HostContext] Well known config file 'MigratedRunner': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.runner_migrated'
+[2026-03-31 11:44:29Z INFO ConfigurationStore] MigratedConfigFilePath: C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.runner_migrated
+[2026-03-31 11:44:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 11:44:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 11:44:29Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.credentials'
+[2026-03-31 11:44:29Z INFO ConfigurationStore] CredFilePath: C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.credentials
+[2026-03-31 11:44:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 11:44:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 11:44:29Z INFO HostContext] Well known config file 'MigratedCredentials': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.credentials_migrated'
+[2026-03-31 11:44:29Z INFO ConfigurationStore] MigratedCredFilePath: C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.credentials_migrated
+[2026-03-31 11:44:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 11:44:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 11:44:29Z INFO HostContext] Well known config file 'Service': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.service'
+[2026-03-31 11:44:29Z INFO ConfigurationStore] ServiceConfigFilePath: C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.service
+[2026-03-31 11:44:29Z INFO CommandSettings] Flag 'help': 'False'
+[2026-03-31 11:44:29Z INFO CommandSettings] Flag 'version': 'False'
+[2026-03-31 11:44:29Z INFO CommandSettings] Flag 'commit': 'False'
+[2026-03-31 11:44:29Z INFO CommandSettings] Flag 'check': 'False'
+[2026-03-31 11:44:29Z INFO CommandSettings] Command 'configure': 'False'
+[2026-03-31 11:44:29Z INFO CommandSettings] Command 'remove': 'False'
+[2026-03-31 11:44:29Z INFO CommandSettings] Command 'warmup': 'False'
+[2026-03-31 11:44:29Z INFO ConfigurationManager] LoadSettings
+[2026-03-31 11:44:29Z INFO ConfigurationStore] IsConfigured()
+[2026-03-31 11:44:29Z INFO ConfigurationStore] IsConfigured: True
+[2026-03-31 11:44:29Z INFO ConfigurationManager] Is configured: True
+[2026-03-31 11:44:29Z INFO ConfigurationStore] Read setting file: 390 chars
+[2026-03-31 11:44:29Z INFO ConfigurationManager] Settings Loaded
+[2026-03-31 11:44:29Z INFO ConfigurationStore] IsServiceConfigured()
+[2026-03-31 11:44:29Z INFO ConfigurationStore] IsServiceConfigured: False
+[2026-03-31 11:44:29Z INFO CommandSettings] Command 'run': 'True'
+[2026-03-31 11:44:29Z INFO ConfigurationStore] IsConfigured()
+[2026-03-31 11:44:29Z INFO ConfigurationStore] IsConfigured: True
+[2026-03-31 11:44:29Z INFO ConfigurationManager] Is configured: True
+[2026-03-31 11:44:29Z INFO Runner] Could not parse the argument value '' for StartupType. Defaulting to Manual
+[2026-03-31 11:44:29Z INFO Runner] Set runner startup type - Manual
+[2026-03-31 11:44:29Z INFO CommandSettings] Flag 'once': 'False'
+[2026-03-31 11:44:29Z INFO CommandSettings] Flag 'once': 'False'
+[2026-03-31 11:44:29Z INFO Runner] RunAsync
+[2026-03-31 11:44:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 11:44:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 11:44:29Z INFO HostContext] Well known directory 'Work': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 11:44:29Z INFO Runner] Validating directory permissions for: 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\_work'
+[2026-03-31 11:44:29Z INFO ConfigurationManager] LoadMigratedSettings
+[2026-03-31 11:44:29Z INFO ConfigurationStore] IsMigratedConfigured()
+[2026-03-31 11:44:29Z INFO ConfigurationStore] IsMigratedConfigured: False
+[2026-03-31 11:44:29Z INFO Runner] Failed to load migrated settings: No migrated configuration found.
+[2026-03-31 11:44:29Z INFO Runner] Falling back to original .runner settings
+[2026-03-31 11:44:29Z INFO Runner] Using BrokerMessageListener
+[2026-03-31 11:44:29Z INFO BrokerMessageListener] Using provided settings
+[2026-03-31 11:44:29Z INFO BrokerMessageListener] {
+  "AgentId": 2,
+  "AgentName": "DESKTOP-PHJ0FAT",
+  "PoolId": 1,
+  "PoolName": "Default",
+  "ServerUrl": "https://pipelinesghubeus15.actions.githubusercontent.com/w8oGnHK6If0ELAVncOEZHBPWHM5pj5qWbnnbyxRPoPxRxcUxjr/",
+  "GitHubUrl": "https://github.com/smkl333/HW2",
+  "WorkFolder": "_work",
+  "UseV2Flow": true,
+  "ServerUrlV2": "https://broker.actions.githubusercontent.com/"
+}
+[2026-03-31 11:44:29Z INFO BrokerMessageListener] Loading Credentials
+[2026-03-31 11:44:29Z INFO ConfigurationStore] HasCredentials()
+[2026-03-31 11:44:29Z INFO ConfigurationStore] stored True
+[2026-03-31 11:44:29Z INFO CredentialManager] GetCredentialProvider
+[2026-03-31 11:44:29Z INFO CredentialManager] Creating type OAuth
+[2026-03-31 11:44:29Z INFO CredentialManager] Creating credential type: OAuth
+[2026-03-31 11:44:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\bin'
+[2026-03-31 11:44:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner'
+[2026-03-31 11:44:29Z INFO HostContext] Well known config file 'RSACredentials': 'C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.credentials_rsaparams'
+[2026-03-31 11:44:29Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.credentials_rsaparams
+[2026-03-31 11:44:29Z INFO BrokerMessageListener] Attempt to create session.
+[2026-03-31 11:44:29Z INFO BrokerMessageListener] Connecting to the Broker Server...
+[2026-03-31 11:44:29Z INFO ConfigurationStore] HasCredentials()
+[2026-03-31 11:44:29Z INFO ConfigurationStore] stored True
+[2026-03-31 11:44:29Z INFO CredentialManager] GetCredentialProvider
+[2026-03-31 11:44:29Z INFO CredentialManager] Creating type OAuth
+[2026-03-31 11:44:29Z INFO CredentialManager] Creating credential type: OAuth
+[2026-03-31 11:44:29Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.credentials_rsaparams
+[2026-03-31 11:44:29Z INFO BrokerMessageListener] VssConnection created
+[2026-03-31 11:44:29Z INFO BrokerMessageListener] Connecting to the Runner server...
+[2026-03-31 11:44:29Z INFO RunnerServer] EstablishVssConnection
+[2026-03-31 11:44:29Z INFO RunnerServer] Establish connection with 100 seconds timeout.
+[2026-03-31 11:44:29Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2026-03-31 11:44:29Z INFO RunnerServer] EstablishVssConnection
+[2026-03-31 11:44:29Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2026-03-31 11:44:29Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2026-03-31 11:44:29Z INFO RunnerServer] EstablishVssConnection
+[2026-03-31 11:44:29Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2026-03-31 11:44:29Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2026-03-31 11:44:30Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2026-03-31 11:44:30Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2026-03-31 11:44:30Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2026-03-31 11:44:30Z INFO BrokerMessageListener] VssConnection created
+[2026-03-31 11:44:30Z INFO Terminal] WRITE LINE: 
+[2026-03-31 11:44:30Z INFO Terminal] WRITE LINE: 
+[2026-03-31 11:44:30Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.credentials_rsaparams
+[2026-03-31 11:44:30Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\minky\OneDrive - 경희대학교\2026-1\오픈소스\2025101824_이민규_HW2\actions-runner\.credentials_rsaparams
+[2026-03-31 11:44:31Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2026-03-31 11:44:31Z ERR  GitHubActionsService] POST request to https://broker.actions.githubusercontent.com/session failed. HTTP Status: Conflict
+[2026-03-31 11:44:31Z ERR  BrokerMessageListener] Catch exception during create session.
+[2026-03-31 11:44:31Z ERR  BrokerMessageListener] GitHub.DistributedTask.WebApi.TaskAgentSessionConflictException: Error: Conflict
+   at GitHub.Actions.RunService.WebApi.BrokerHttpClient.CreateSessionAsync(TaskAgentSession session, CancellationToken cancellationToken)
+   at GitHub.Runner.Common.BrokerServer.CreateSessionAsync(TaskAgentSession session, CancellationToken cancellationToken)
+   at GitHub.Runner.Listener.BrokerMessageListener.CreateSessionAsync(CancellationToken token)
+[2026-03-31 11:44:31Z INFO BrokerMessageListener] The session for this runner already exists.
+[2026-03-31 11:44:31Z ERR  Terminal] WRITE ERROR: A session for this runner already exists.
+[2026-03-31 11:44:31Z INFO BrokerMessageListener] The session conflict exception haven't reached retry limit.
+[2026-03-31 11:44:31Z ERR  Terminal] WRITE ERROR: 2026-03-31 11:44:31Z: Runner connect error: Error: Conflict. Retrying until reconnected.
+[2026-03-31 11:44:31Z INFO BrokerMessageListener] Sleeping for 30 seconds before retrying.
+[2026-03-31 11:44:36Z INFO HostContext] Runner will be shutdown for UserCancelled

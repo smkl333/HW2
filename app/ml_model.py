@@ -3,6 +3,8 @@ from PIL import Image
 from pix2tex.cli import LatexOCR
 import sympy
 from sympy.parsing.latex import parse_latex
+import easyocr
+import numpy as np
 
 logger = logging.getLogger(__name__)
 
@@ -46,3 +48,32 @@ class MathOCRModel:
             "latex_raw": recognized_latex,
             "solved": solved_result
         }
+
+class HandwritingModel:
+    def __init__(self):
+        """
+        Initialize EasyOCR for Korean and English text recognition.
+        """
+        logger.info("Loading EasyOCR models (Korean, English) into memory...")
+        self.reader = easyocr.Reader(['ko', 'en'])
+        logger.info("EasyOCR models loaded successfully.")
+
+    def predict(self, image: Image.Image) -> dict:
+        """
+        Run OCR on the image to recognize handwritten or printed text.
+        """
+        try:
+            # Convert PIL image to numpy array as required by EasyOCR
+            image_np = np.array(image.convert("RGB"))
+            results = self.reader.readtext(image_np)
+            
+            # results format: [([[x, y], [x, y], ...], text, confidence), ...]
+            full_text = " ".join([res[1] for res in results])
+            
+            return {
+                "text_raw": full_text,
+                "segments": [{"text": res[1], "confidence": round(float(res[2]), 4)} for res in results]
+            }
+        except Exception as e:
+            logger.error(f"Handwriting OCR failed: {e}")
+            raise RuntimeError(f"Failed to extract text from image: {str(e)}")

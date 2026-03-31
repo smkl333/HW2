@@ -1,0 +1,12 @@
+﻿{
+  "repositoryName": "smkl333/HW2",
+  "pipelineDirectory": "HW2",
+  "workspaceDirectory": "HW2\\HW2",
+  "repositories": {
+    "smkl333/HW2": {
+      "repositoryPath": "HW2\\HW2",
+      "lastRunOn": "03/31/2026 20:16:34 +09:00"
+    }
+  },
+  "lastRunOn": "03/31/2026 20:45:17 +09:00"
+}

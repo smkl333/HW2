@@ -20,9 +20,10 @@ RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
 # 6. Pre-download Model Weights (MLOps Best Practice)
-# By running latexocr once during the build process, the Docker image will cache the downloaded PyTorch weights.
-# This prevents the server from having to download hundreds of MBs during container startup in production.
+# By running models once during building, the Docker image will cache the downloaded weights.
+# This prevents the server from downloading GBs during container startup in production.
 RUN python -c "from pix2tex.cli import LatexOCR; LatexOCR()"
+RUN python -c "import easyocr; easyocr.Reader(['ko', 'en'])"
 
 # 7. Copy the rest of the application code
 COPY ./app ./app

@@ -1,0 +1,11 @@
+﻿{
+  "agentId": 2,
+  "agentName": "DESKTOP-PHJ0FAT",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelinesghubeus15.actions.githubusercontent.com/w8oGnHK6If0ELAVncOEZHBPWHM5pj5qWbnnbyxRPoPxRxcUxjr/",
+  "gitHubUrl": "https://github.com/smkl333/HW2",
+  "workFolder": "_work",
+  "useV2Flow": true,
+  "serverUrlV2": "https://broker.actions.githubusercontent.com/"
+}
