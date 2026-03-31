@@ -61,7 +61,7 @@ jobs:
         run: docker run -d -p 8000:8000 --name math-ocr-api ${{ secrets.DOCKER_USERNAME }}/math-ocr-api:latest
 
       - name: Wait for server to start
-        run: sleep 5
+        run: sleep 45
 
       - name: Health check
         run: curl.exe -f http://localhost:8000/health
