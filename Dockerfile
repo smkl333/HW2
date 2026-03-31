@@ -15,7 +15,7 @@ ENV XDG_CACHE_HOME=/app/.cache
 # 4. Install system dependencies required by Pillow and ML packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc \
-    libgl1-mesa-glx \
+    libgl1 \
     libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
