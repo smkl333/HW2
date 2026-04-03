@@ -1,6 +1,8 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, File, UploadFile, HTTPException
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
+from fastapi.staticfiles import StaticFiles
+import os
 import io
 from PIL import Image
 import uvicorn
@@ -44,6 +46,18 @@ app = FastAPI(
     lifespan=lifespan
 )
 
+# Mount the static directory for the new UI
+static_dir = os.path.join(os.path.dirname(__file__), "static")
+if not os.path.exists(static_dir):
+    os.makedirs(static_dir)
+
+app.mount("/static", StaticFiles(directory=static_dir), name="static")
+
+@app.get("/")
+async def read_index():
+    """Serve the modern frontend UI"""
+    return FileResponse(os.path.join(static_dir, "index.html"))
+
 @app.get("/health")
 def health_check():
     """Endpoint for monitoring pipeline health"""
@@ -85,10 +99,6 @@ async def solve_math_equation(file: UploadFile = File(...)):
             "filename": file.filename,
             "data": prediction
         }
-    except Exception as e:
-        logger.error(f"Prediction error: {e}")
-        return JSONResponse(status_code=500, content={"error": str(e)})
-
     except Exception as e:
         logger.error(f"Prediction error: {e}")
         return JSONResponse(status_code=500, content={"error": str(e)})

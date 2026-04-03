@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Math Solver - HW2</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard+Variable:wght@400..900&display=swap" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="glass-container">
+        <header>
+            <h1>AI Math Solver <span class="badge">v1.2</span></h1>
+            <p>Upload a photo of a math problem (printed or handwritten) to solve it.</p>
+        </header>
+
+        <main>
+            <div id="drop-zone" class="drop-zone">
+                <div class="drop-zone-content">
+                    <div class="icon">📸</div>
+                    <p>Drag & Drop an image here or click to upload</p>
+                    <input type="file" id="file-input" accept="image/*" hidden>
+                </div>
+                <div id="preview-container" class="preview-container hidden">
+                    <img id="image-preview" src="#" alt="Preview">
+                    <button id="remove-btn" class="remove-btn">&times;</button>
+                </div>
+            </div>
+
+            <button id="solve-btn" class="solve-btn" disabled>Solve Equation</button>
+
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Analyzing problem with AI Ensemble...</p>
+            </div>
+
+            <div id="result-container" class="result-container hidden">
+                <div class="result-card">
+                    <h3>Recognized Formula</h3>
+                    <div id="formula-latex" class="formula-box"></div>
+                    <div id="formula-rendered" class="math-render"></div>
+                </div>
+                
+                <div class="result-card highlight">
+                    <h3>Solved Result</h3>
+                    <div id="solved-text" class="solution-box"></div>
+                </div>
+
+                <div class="metadata">
+                    <span id="method-badge" class="method-badge"></span>
+                    <span id="filename-text" class="filename"></span>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2026 2025101824 이민규. Built with FastAPI & MLOps.</p>
+        </footer>
+    </div>
+    <script src="/static/app.js"></script>
+</body>
+</html>
